@@ -23,7 +23,8 @@ npm run back:dev
 ### Сборка
 
 ```shell
-npm install -g sass
+npm i -g @nestjs/cli
+npm i -g sass
 
 npm run sass
 npm run front
