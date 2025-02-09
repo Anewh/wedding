@@ -1,0 +1,371 @@
+
+// @use "tailwindcss/components";
+// @use "tailwindcss/utilities";
+
+// ------------ конверт ------------
+// план работ: 
+// 1. Конверт и анимация открытия. Анимация страницы + 
+// 2. Приветствие
+// 3. Время
+// 4. Дресс-код 
+// 5. Место 
+@use "index.css";
+
+$main-them-color: #f3f3f3;
+$accent-color: #780201;
+$convert-theme-clear: #780201;
+$convert-theme-darkened: #8c0201;
+$convert-theme-ground: #820201;
+
+
+/* задний фон */
+body {
+    background-color: $main-them-color; /* Изменил на цвет нашего фона сайта */
+    text-align: center;
+    height: 100vh;
+    width: 100vw;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+    margin: 0;
+    padding: 0;
+    font-family: 'Arial', sans-serif;
+    font-size: 12px;
+  }
+
+  /* внутренняя часть конверта */
+  .envelope {
+    width: 300px;
+    height: 150px;
+    background: $accent-color;
+    position: relative;
+  }
+
+  /* ХЗ */
+  .envelope__check {
+    height: 100%;
+    width: 100%;
+    z-index: 10;
+    opacity: 0;
+    position: absolute;
+    left: 0;
+    top: 0;
+    margin: 0;
+    cursor: pointer;
+  }
+
+  /* внутренняя часть крышки конверта */
+  .envelope__check:checked ~ .envelope__flap {
+    transition: transform 0.25s 0s, z-index 0s 0.25s;
+    transform: rotateX(-180deg);
+    z-index: 0;
+  }
+
+  /* ХЗ */
+  .envelope__check:checked ~ .envelope__letter {
+    transform: translateY(-110%);
+    transition: transform 0.25s 0.25s, z-index 0s 0.5s;
+    z-index: 5;
+  }
+
+  /* нижняя половина письма */
+  .envelope__check:checked ~ .envelope__letter .letter__content:nth-child(2),
+  .envelope__check:checked ~ .envelope__letter .letter__content:nth-child(3) {
+    transition: transform 0.25s 0.5s, width 2s 1s, height 2s 1s;
+    transform: rotateX(0deg);
+
+    width: 500%;
+    height: 500%;
+  }
+
+  .envelope__check:checked ~ .envelope__letter .letter__content:nth-child(1) {
+    width: 500%;
+    height: 500%;
+    transition: width 2s 1s, height 2s 1s;
+
+  position: fixed  ;
+  top: 0vh;
+  left: 0vw;
+  width: 100vw;
+  height: 100vh;
+  }
+
+  .envelope__check:checked ~ .stamp_img {
+    display: none;
+  }
+
+  .envelope__check:checked ~ .stamp_div {
+    visibility: hidden;
+    opacity: 0;
+    transform: rotateX(-180deg);
+
+    transition: opacity 0.5s, visibility 0.5s, transform 0.3s ;
+  }
+
+  .stamp_img {
+    width: 50px;
+  }
+
+  .stamp_div {
+    display: flex;
+    align-items: center; 
+    justify-content: center;  
+    z-index: 1000; 
+    position: relative; 
+    height: 150%;
+    transform: rotateX(0deg);
+
+    visibility: visible;
+    opacity: 1;
+    transition: opacity 1s 1s, visibility 1s 1s, transform 1s 1s;
+  }
+
+  /* Крышка конверта */
+  .envelope__flap {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 75%;
+    transition: transform 0.25s 0.5s, z-index 0s 0.5s;
+    transform-origin: top center;
+    -webkit-backface-visibility: hidden;
+            backface-visibility: hidden;
+    background: repeating-linear-gradient(-45deg, $accent-color, $accent-color 10px, $convert-theme-clear 10px, $convert-theme-clear 20px, $accent-color 20px, $accent-color 30px, $convert-theme-clear 30px, $convert-theme-clear 40px) 0 0/100% 5px no-repeat, $accent-color;
+    z-index: 4;
+    -webkit-clip-path: polygon(5% 40%, 50% 100%, 95% 40%, 100% 0, 0 0);
+            clip-path: polygon(5% 40%, 50% 100%, 95% 40%, 100% 0, 0 0);
+      /* Изменил на цвет акцента нашего фона сайта */
+  }
+
+  /* ХЗ внутренняя часть крышки конверта */
+  .envelope__flap--inside {
+    background: $accent-color; /* Изменил на цвет акцента нашего фона сайта */
+    -webkit-backface-visibility: visible;
+            backface-visibility: visible;
+  }
+
+  /* боковые части конверта */
+  .envelope__back {
+    height: 100%;
+    width: 100%;
+    height: 100%;
+    width: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 3;
+    background: repeating-linear-gradient(-45deg, $convert-theme-darkened, $convert-theme-darkened 10px, $convert-theme-clear 10px, $convert-theme-clear 20px, $convert-theme-darkened 20px, $convert-theme-darkened 30px, $convert-theme-clear 30px, $convert-theme-clear 40px) 0 100%/100% 5px no-repeat, repeating-linear-gradient(-45deg, $convert-theme-darkened, $convert-theme-darkened 10px, $convert-theme-clear 10px, $convert-theme-clear 20px, $convert-theme-darkened 20px, $convert-theme-darkened 30px, $convert-theme-clear 30px, $convert-theme-clear 40px) 0 100%/5px 100% no-repeat, repeating-linear-gradient(-45deg, $convert-theme-darkened, $convert-theme-darkened 10px, $convert-theme-clear 10px, $convert-theme-clear 20px, $convert-theme-darkened 20px, $convert-theme-darkened 30px, $convert-theme-clear 30px, $convert-theme-clear 40px) 100% 100%/5px 100% no-repeat, $convert-theme-darkened;
+    -webkit-clip-path: polygon(80% 40%, 100% 0, 100% 100%, 0 100%, 0 0, 20% 40%);
+            clip-path: polygon(80% 40%, 100% 0, 100% 100%, 0 100%, 0 0, 20% 40%);
+            /* Изменил на цвет акцента нашего фона сайта */
+  }
+
+  /* нижняя часть конверта */
+  .envelope__back:after {
+    height: 100%;
+    width: 100%;
+    background: repeating-linear-gradient(-45deg, $convert-theme-ground, $convert-theme-ground 10px, $convert-theme-clear 10px, $convert-theme-clear 20px, $convert-theme-ground 20px, $convert-theme-ground 30px, $convert-theme-clear 30px, $convert-theme-clear 40px) 0 100%/100% 5px no-repeat, $convert-theme-ground;
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    -webkit-clip-path: polygon(70% 10%, 100% 100%, 0 100%, 30% 10%);
+            clip-path: polygon(70% 10%, 100% 100%, 0 100%, 30% 10%);
+            /* Изменил на цвет акцента нашего фона сайта */
+  }
+
+  /* ХЗ */
+  .envelope__letter {
+    height: 90%;
+    width: 90%;
+    z-index: 1;
+    position: absolute;
+    left: 5%;
+    top: 5%;
+    transition: transform 0.25s 0.25s, z-index 0s 0.25s;
+    transform: translateY(0);
+  }
+
+  /* фон письма */
+  .letter__content {
+    height: 100%;
+    width: 100%;
+    background-color: $convert-theme-clear; /* Изменил на цвет нашего фона сайта */
+    top: 0;
+    left: 0;
+    position: absolute;
+    padding: 14px;
+    text-align: justify;
+  }
+
+  /* ХЗ нижняя часть письма */
+  .letter__content:nth-child(2),
+  .letter__content:nth-child(3) {
+    transition: transform 0.25s, width 0.2s, height 0.2s;
+    top: 100%;
+    transform-origin: top center;
+    transform: rotateX(180deg);
+    -webkit-backface-visibility: visible;
+            backface-visibility: visible;
+    z-index: 2;
+    border-top: 1px solid #eee;
+  }
+
+  .letter__content:nth-child(1) {
+    transition: width 0.2s, height 0.2s;
+
+  }
+
+  /* ХЗ нижняя внутренняя часть письма */
+  .letter__content:nth-child(3) {
+    -webkit-backface-visibility: hidden;
+            backface-visibility: hidden;
+  }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+// --------- анкета 
+
+.control {
+    font-family: arial;
+    display: block;
+    position: relative;
+    padding-left: 30px;
+    margin-bottom: 5px;
+    padding-top: 3px;
+    cursor: pointer;
+    font-size: 16px;
+}
+    .control input {
+        position: absolute;
+        z-index: -1;
+        opacity: 0;
+    }
+.control_indicator {
+    position: absolute;
+    top: 3px;
+    left: 0;
+    height: 20px;
+    width: 20px;
+    background: $convert-theme-ground;
+    border: 1px solid #afacac;
+    border-radius: 0px;
+    opacity: 0.75;
+}
+
+.control:hover input ~ .control_indicator {
+    opacity: 1;
+}
+
+.control input:checked ~ .control_indicator {
+    opacity: 1;
+}
+
+.control:hover input:not([disabled]):checked ~ .control_indicator,
+.control input:checked:focus ~ .control_indicator {
+    background: $convert-theme-ground;
+}
+.control input:disabled ~ .control_indicator {
+    background: #e6e6e6;
+    opacity: 14;
+    pointer-events: none;
+}
+.control_indicator:after {
+    box-sizing: unset;
+    content: '';
+    position: absolute;
+    display: none;
+}
+.control input:checked ~ .control_indicator:after {
+    display: block;
+}
+.control-checkbox .control_indicator:after {
+    left: 6px;
+    top: 0px;
+    width: 4px;
+    height: 12px;
+    border: solid #afacac;
+    border-width: 0 3px 3px 0;
+    transform: rotate(45deg);
+}
+.control-checkbox input:disabled ~ .control_indicator:after {
+    border-color: #7b7b7b;
+}
+.control-checkbox .control_indicator::before {
+    content: '';
+    display: block;
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 2.598rem;
+    height: 3.286rem;
+    margin-left: -1.763rem;
+    margin-top: -1.469rem;
+    background: #afacac;
+    border-radius: 3rem;
+    opacity: 0.5;
+    z-index: 99999;
+    transform: scale(0);
+}
+@keyframes s-ripple {
+    0% {
+        transform: scale(0);
+    }
+    20% {
+        transform: scale(1);
+    }
+    100% {
+        opacity: 0;
+        transform: scale(1);
+    }
+}
+@keyframes s-ripple-dup {
+   0% {
+       transform: scale(0);
+    }
+   30% {
+        transform: scale(1);
+    }
+    60% {
+        transform: scale(1);
+    }
+    100% {
+        opacity: 0;
+        transform: scale(1);
+    }
+}
+.control-checkbox input + .control_indicator::before {
+    animation: s-ripple 250ms ease-out;
+}
+.control-checkbox input:checked + .control_indicator::before {
+    animation-name: s-ripple-dup;
+}
+
+
