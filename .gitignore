@@ -3,4 +3,4 @@ node_modules
 src/stylesheets/main.css
 src/stylesheets/main.css.map
 build
-public
+public/stylesheets
