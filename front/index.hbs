@@ -6,13 +6,13 @@
   <link rel="stylesheet" type="text/css" href="./public/stylesheets/main.css">
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css"
-    integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
+        integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
 </head>
 
 <body>
   {{!-- TODO --}}
-  {{!-- <div class="welcome flex"> --}}
-    {{!-- <div class="flex-1">
+  <div class="welcome">
+    <div class="flex-1">
       <div class="heart-container">
         <i class="fas fa-heart"><img class="stamp_img max-h-4" src="./public/assets/red-heart.png"></i>
         <i class="fas fa-heart"><img class="stamp_img max-h-4" src="./public/assets/red-heart.png"></i>
@@ -100,40 +100,77 @@
         <i class="fas fa-heart"><img class="stamp_img max-h-4" src="./public/assets/red-heart.png"></i>
       </div>
     </div>
-  </div> --}}
-  <div class="flex flex-col container items-center mx-auto justify-center">
+  </div>
+  <main class="flex flex-col container items-center mx-auto justify-center w-4/6">
 
-    <div class="collage">
-      <img src="./public/assets/collage.png">
-    </div>
-    <div class="header1">
-      Дорогой/Дорогая [Имя гостя]
-    </div>
-    <div class="main-text">
-      Давно ждали момента, когда сможем разделить с Вами самый важный и счастливый день в нашей жизни. Совсем скоро
-      состоится наша свадьба! Мы рады пригласить вас стать свидетелем этого торжества и провести с нами этот прекрасный
-      день!
-    </div>
-    <div class="calendar">
-      <img class="" src="./public/assets/calendar.png">
-    </div>
-    <div class="timer">
+    <section class="section section--type-first section--collage">
+      <div class="collage__wrapper  mr-3">
+        <img class="collage" src="./public/assets/collage.png">
+      </div>
+      <div class="section__header ml-5"> Мария & Андрей <br> 16 августа 2025 </div>
+    </section>
+
+    <section class="section section--type-second section--hello">
+      <div class="section__header">
+        Дорогой/Дорогая <br> [Имя гостя]
+      </div>
+      <div class="section__subtitle">
+        Давно ждали момента, когда сможем разделить с Вами самый важный и счастливый день в нашей жизни. Совсем скоро
+        состоится наша свадьба! Мы рады пригласить вас стать свидетелем этого торжества и провести с нами этот
+        прекрасный
+        день!
+      </div>
+    </section>
+
+    <section class="section section--type-first section--calendar">
+      <div class="flex flex-row justify-between">
+        <div class="flex flex-col">
+          <div class="section__subtitle mx-auto">
+            До нашего торжества осталось:
+          </div>
+        </div>
+        <div class="calendar__wrapper">
+          <img class="calendar" src="./public/assets/calendar.png">
+        </div>
+      </div>
+    </section>
+
+    <section class="section section--type-second section--timer">
       До нашего торжества осталось:
-    </div>
-    <div class="place flex flex-row">
-      Место проведения:
-      <div class="photo"> <img class="" src="./public/assets/place.webp"> </div>
-      <div class="map"> <div style="position:relative;overflow:hidden;"><a href="https://yandex.ru/maps/org/openhouse/186535918791/?utm_medium=mapframe&utm_source=maps" style="color:#eee;font-size:12px;position:absolute;top:0px;">Openhouse</a><a href="https://yandex.ru/maps/9/lipetsk/category/restaurant/184106394/?utm_medium=mapframe&utm_source=maps" style="color:#eee;font-size:12px;position:absolute;top:14px;">Ресторан в Липецке</a><a href="https://yandex.ru/maps/9/lipetsk/category/conference_and_meeting_hall/51258116372/?utm_medium=mapframe&utm_source=maps" style="color:#eee;font-size:12px;position:absolute;top:28px;">Конференц-зал в Липецке</a><iframe src="https://yandex.ru/map-widget/v1/?ll=39.594847%2C52.588117&mode=poi&poi%5Bpoint%5D=39.593906%2C52.588616&poi%5Buri%5D=ymapsbm1%3A%2F%2Forg%3Foid%3D186535918791&z=17.19" width="560" height="400" frameborder="1" allowfullscreen="true" style="position:relative;"></iframe></div> </div>
-    </div>
-    <div class="dresscode">
+    </section>
+
+    <section class="section section--type-first section--place">
+      <div class="section__header">
+        Место проведения:
+      </div>
+
+      <div class="photo">
+        <img class="" src="./public/assets/place.webp">
+      </div>
+      <div class="map">
+        <div style="position:relative;overflow:hidden;"><a
+             href="https://yandex.ru/maps/org/openhouse/186535918791/?utm_medium=mapframe&utm_source=maps"
+             style="color:#eee;font-size:12px;position:absolute;top:0px;">Openhouse</a><a
+             href="https://yandex.ru/maps/9/lipetsk/category/restaurant/184106394/?utm_medium=mapframe&utm_source=maps"
+             style="color:#eee;font-size:12px;position:absolute;top:14px;">Ресторан в Липецке</a><a
+             href="https://yandex.ru/maps/9/lipetsk/category/conference_and_meeting_hall/51258116372/?utm_medium=mapframe&utm_source=maps"
+             style="color:#eee;font-size:12px;position:absolute;top:28px;">Конференц-зал в Липецке</a><iframe
+                  src="https://yandex.ru/map-widget/v1/?ll=39.594847%2C52.588117&mode=poi&poi%5Bpoint%5D=39.593906%2C52.588616&poi%5Buri%5D=ymapsbm1%3A%2F%2Forg%3Foid%3D186535918791&z=17.19"
+                  width="560" height="400" frameborder="1" allowfullscreen="true" style="position:relative;"></iframe>
+        </div>
+      </div>
+    </section>
+
+    <section class="section section--dresscode">
       Мы много старались для того, чтобы этот праздник был очень красивым, поэтому с большим трепетом относимся ко всем
       деталям.
       Поддержите нас вашими улыбками и объятиями, а также красивыми нарядами в палитре торжества:
 
       ДРЕССКОД ПАЛИТРА
-    </div>
-    <div class="container flex justify-center w-full px-40 pt-10 mx-auto">
-      <form class="section section--accept-invite" action="accept-invite" method="post">
+    </section>
+
+    <section class="section section--accept-invite container flex justify-center w-full px-40 pt-10 mx-auto">
+      <form action="accept-invite" method="post">
         <p class="section__header mb-6">Вы придете?</p>
 
         <p class="section__subtitle mb-6">какой-то уважительный текст который тяжело читать в этом шрифте на этом
@@ -148,8 +185,9 @@
 
         <button class="general">Я буду!</button>
       </form>
-    </div>
-  </div>
+    </section>
+
+  </main>
 </body>
 
 </html>

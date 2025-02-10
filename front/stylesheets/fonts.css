@@ -1,4 +1,3 @@
-/* Заголовки */
 @font-face {
     font-family: "Cormorant Infant";
     font-weight: 400;
@@ -15,7 +14,6 @@
         url(../../public/fonts/Cormorant_Infant/CormorantInfant-Bold.ttf) format(opentype);
 }
 
-/* Основной */
 @font-face {
     font-family: "Cormorant Infant";
     font-weight: 300;
@@ -24,7 +22,16 @@
         url(../../public/fonts/Cormorant_Infant/CormorantInfant-Light.ttf) format(opentype);
 }
 
-/* Дополнительный */
+@font-face {
+    font-family: "Cormorant Infant";
+    font-weight: 400;
+    font-style: italic;
+    src:
+        local("Cormorant Infant"),
+        url(../../public/fonts/Cormorant_Infant/CormorantInfant-Italic.ttf) format(opentype);
+}
+
+
 @font-face {
     font-family: "Denistina";
     font-weight: 400;
@@ -33,26 +40,26 @@
         url(../../public/fonts/Denistina/denistina_en.ttf) format(opentype);
 }
 
-Light 300
-Whereas recognition of the inherent dignity
-Light 300 Italic
-Whereas recognition of the inherent dignity
-Regular 400
-Whereas recognition of the inherent dignity
-Regular 400 Italic
-Whereas recognition of the inherent dignity
-Medium 500
-Whereas recognition of the inherent dignity
-Medium 500 Italic
-Whereas recognition of the inherent dignity
-SemiBold 600
-Whereas recognition of the inherent dignity
-SemiBold 600 Italic
-Whereas recognition of the inherent dignity
-Bold 700
-Whereas recognition of the inherent dignity
-Bold 700 Italic
-Whereas recognition of the inherent dignity
+/* Light 300 */
+/* Whereas recognition of the inherent dignity */
+/* Light 300 Italic */
+/* Whereas recognition of the inherent dignity */
+/* Regular 400 */
+/* Whereas recognition of the inherent dignity */
+/* Regular 400 Italic */
+/* Whereas recognition of the inherent dignity */
+/* Medium 500 */
+/* Whereas recognition of the inherent dignity */
+/* Medium 500 Italic */
+/* Whereas recognition of the inherent dignity */
+/* SemiBold 600 */
+/* Whereas recognition of the inherent dignity */
+/* SemiBold 600 Italic */
+/* Whereas recognition of the inherent dignity */
+/* Bold 700 */
+/* Whereas recognition of the inherent dignity */
+/* Bold 700 Italic */
+/* Whereas recognition of the inherent dignity */
 
 /* Остальные скачанные */
 /* url(../../public/fonts/Cormorant_Infant/CormorantInfant-BoldItalic.ttf) format(opentype), */

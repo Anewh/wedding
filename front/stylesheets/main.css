@@ -7,17 +7,23 @@
 
 @import "./index.css";
 
+@import "./fonts.css";
+@import "./convert.css";
+@import "./hearts.css";
+
 :root {
-  --main-theme-color: #f3f3f3;
-  --light-theme-color: #fdf9ee;
+  --main-theme-color: #fcf8ee;
+  --light-theme-color: #fcf8ee;
   --accent-color: #780201;
-  --section-color: var(--accent-color);
+  --accent-dark-color: #1e222b;
+
+  --section-color-first: var(--accent-color);
+  --section-color-second: var(--accent-dark-color);
+
   --convert-theme-clear: #780201;
   --convert-theme-darkened: #8c0201;
   --convert-theme-ground: #820201;
 }
-
-/* общее */
 
 body {
   background-color: var(--main-theme-color);
@@ -29,7 +35,7 @@ body {
 }
 
 p {
-  font-size: 14px;
+  font-size: 4vw;
 }
 
 @utility neomorfic {
@@ -39,32 +45,115 @@ p {
     -7px -7px 14px #ffffff;
 }
 
+@utility pergament {
+  /* backdrop-filter: opacity(20%) blur(9px); */
+  backdrop-filter: blur(25px);
+  /* background-color: rgba(173, 52, 52, 0.6); */
+  box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
+  /* border-radius: 10px; */
+  /* border: 1px solid rgba(255, 255, 255, 0.18); */
+}
+
+/* TODO ONLY TEST всратые сердца на фоне
+body {
+  background-image: url('https://ybis.ru/wp-content/uploads/2023/09/fon-serdechki-2-1.webp');
+  background-repeat: repeat;
+  animation: body-test 1000s linear infinite; 
+} */
+
+@keyframes body-test {
+  0% {
+    background-position-y: 0;
+  }
+
+  100% {
+    background-position-y: -40000px;
+  }
+}
+
 .section {
-  @apply flex flex-col items-center mx-auto content-between;
-  @apply neomorfic;
+  @apply flex flex-col items-center mx-auto content-between w-full;
+  /* @apply neomorfic; */
+  @apply pergament;
 
-  width: 60%;
+  /* width: 60%; */
 
-  background-color: var(--section-color);
-  padding-inline: 1rem;
+  padding-inline: 3rem;
   padding-top: 0.75rem;
   padding-bottom: 0.75rem;
 
   .section__header {
     @apply text-center;
-    color: white;
-    font-weight: 700;
 
-    font-size: 3.75rem;
-    line-height: 1;
+    font-family: 'Denistina', 'Cormorant Infant', 'Arial', sans-serif;
+    font-weight: 400;
+
+    font-size: 3vw;
   }
-  
+
+  .section__header {
+    @apply text-center;
+
+    font-family: 'Denistina', 'Cormorant Infant', 'Arial', sans-serif;
+    font-weight: 400;
+
+    font-size: 3vw;
+  }
+
   .section__subtitle {
     @apply text-center;
-    color: white;
 
-    font-size: 1.8rem;
+    font-style: italic;
+    font-size: 1.2vw;
   }
+
+  &.section--type-first {
+    color: white;
+    background-color: rgb(from var(--section-color-first) r g b / 80%);
+  }
+
+  &.section--type-second {
+    color: white;
+    background-color: rgb(from var(--section-color-second) r g b / 90%);
+  }
+
+  &.section--collage {
+    @apply flex flex-row justify-between;
+
+    /* max-width: 30%; */
+    max-height: auto;
+    justify-content: center;
+    align-items: center;
+  }
+
+  &.section--calendar {
+    /* max-width: 15%; */
+    max-height: auto;
+    justify-content: center;
+    align-items: center;
+  }
+
+  &.section--photo {
+    /* max-width: 50%; */
+    max-height: auto;
+    justify-content: left;
+    align-items: left;
+  }
+
+  &.section--map {
+    /* max-width: 50%; */
+    max-height: auto;
+    justify-content: right;
+    align-items: right;
+  }
+}
+
+.collage__wrapper {
+  max-width: 60%;
+}
+
+.calendar__wrapper {
+  max-width: 50%
 }
 
 form {
@@ -72,27 +161,27 @@ form {
 
   .form-body {
     @apply flex flex-col;
-  
+
     background-color: var(--light-theme-color);
-  
+
     padding-left: 0.8rem;
     padding-right: 1.4rem;
     padding-top: 1.2rem;
     padding-bottom: 1.7rem;
-  
+
     border-radius: 5px;
-  
+
     .form-body__field {
       @apply flex flex-col;
-  
-      font-size: 1.875rem;
-      line-height: 2.25rem;
-  
+
+      font-size: 1.875vw;
+      line-height: 10px;
+
       .form-body__label {
         color: black;
         margin-bottom: 8px;
       }
-  
+
       .form-body__input--text {
         background: none;
         border-bottom-width: 1px;
@@ -107,320 +196,21 @@ form {
   }
 }
 
-/* --- сердечки на фоне конферта --- */
-* {
-  padding: 0;
-  margin: 0;
-}
-.heart-container {
-  /* background-image: url(images\hand.jpg) no-repeat; */
-  background-size: cover;
-  background-position: center;
-  height: 100vh;
-  position: relative;
-}
-.heart-container img{
-
-	height: 100vh;
-	width: 100vw;
-
-}
-
-.fa-heart {
-  font-size: 0%;
-  /* color: red; */
-  position: absolute;
-  bottom: -100px;
-  animation: heart 5s linear infinite;
-  max-width: 32px;
-}
-
-@keyframes heart {
-  0% {
-    opacity: 0;
-  }
-  50% {
-    opacity: 1;
-  }
-  100% {
-    bottom: 100%;
-    opacity: 0;
-  }
-}
-
-/*YOU CAN SET EVERY HEART POSITION AND DELAY AS YOU LIKE*/
-.fa-heart:nth-child(2n) {
-  left: 10%;
-  animation-delay: 1s;
-}
-
-.fa-heart:nth-child(3n) {
-  left: 20%;
-  animation-delay: 1.6s;
-}
-
-.fa-heart:nth-child(4n) {
-  left: 30%;
-  animation-delay: 2s;
-}
-
-.fa-heart:nth-child(5n) {
-  left: 40%;
-  animation-delay: 0.6s;
-}
-
-.fa-heart:nth-child(6n) {
-  left: 50%;
-  animation-delay: 1.1s;
-}
-
-.fa-heart:nth-child(7n) {
-  left: 60%;
-  animation-delay: 1.7s;
-}
-
-.fa-heart:nth-child(8n) {
-  left: 70%;
-  animation-delay: 3.5s;
-}
-
-/* ------------ конверт ------------ */
-
 .welcome {
-  @apply w-full h-full overflow-hidden;
+  @apply flex w-full h-full overflow-hidden;
   /* TODO Временно, пока не доработан конверт */
-  /* @apply hidden;  */
+  @apply hidden;
 }
 
-/* внутренняя часть конверта */
-.envelope {
-   @apply neomorfic;
-  width: 200px;
-  height: 100px;
-  background: var(--accent-color);
-  position: relative;
-}
-
-/* ХЗ */
-.envelope__check {
-  height: 100%;
-  width: 100%;
-  z-index: 10;
-  opacity: 0;
-  position: absolute;
-  left: 0;
-  top: 0;
-  margin: 0;
-  cursor: pointer;
-}
-
-/* внутренняя часть крышки конверта */
-.envelope__check:checked~.envelope__flap {
-  transition: transform 0.25s 0s, z-index 0s 0.25s;
-  transform: rotateX(-180deg);
-  z-index: 0;
-}
-
-/* ХЗ */
-.envelope__check:checked~.envelope__letter {
-  transform: translateY(-110%);
-  transition: transform 0.25s 0.25s, z-index 0s 0.5s;
-  z-index: 5;
-}
-
-/* нижняя половина письма */
-.envelope__check:checked~.envelope__letter .letter__content:nth-child(2),
-.envelope__check:checked~.envelope__letter .letter__content:nth-child(3) {
-  transition: transform 0.25s 0.5s, width 2s 1s, height 2s 1s;
-  transform: rotateX(0deg);
-
-  width: 500%;
-  height: 500%;
-}
-
-.envelope__check:checked~.envelope__letter .letter__content:nth-child(1) {
-  width: 500%;
-  height: 500%;
-  transition: width 2s 1s, height 2s 1s;
-
-  position: fixed;
-  top: 0vh;
-  left: 0vw;
-  width: 100vw;
-  height: 100vh;
-}
-
-.envelope__check:checked~.stamp_img {
-  display: none;
-}
-
-.envelope__check:checked~.stamp_div {
-  visibility: hidden;
-  opacity: 0;
-  transform: rotateX(-180deg);
-
-  transition: opacity 0.5s, visibility 0.5s, transform 0.3s;
-}
-
-.stamp_img {
-  width: 50px;
-}
-
-.stamp_div {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  z-index: 1000;
-  position: relative;
-  height: 150%;
-  transform: rotateX(0deg);
-
-  visibility: visible;
-  opacity: 1;
-  transition: opacity 1s 1s, visibility 1s 1s, transform 1s 1s;
-}
-
-/* Крышка конверта */
-.envelope__flap {
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  height: 75%;
-  transition: transform 0.25s 0.5s, z-index 0s 0.5s;
-  transform-origin: top center;
-  -webkit-backface-visibility: hidden;
-  backface-visibility: hidden;
-  background: repeating-linear-gradient(-45deg var(--accent-color) var(--accent-color) 10px var(--convert-theme-clear) 10px var(--convert-theme-clear) 20px var(--accent-color) 20px var(--accent-color) 30px var(--convert-theme-clear) 30px var(--convert-theme-clear) 40px) 0 0/100% 5px no-repeat var(--accent-color);
-  z-index: 4;
-  -webkit-clip-path: polygon(5% 40% 50% 100%, 95% 40%, 100% 0, 0 0);
-  clip-path: polygon(5% 40%, 50% 100%, 95% 40%, 100% 0, 0 0);
-  /* Изменил на цвет акцента нашего фона сайта */
-}
-
-/* ХЗ внутренняя часть крышки конверта */
-.envelope__flap--inside {
-  background: var(--accent-color);
-  /* Изменил на цвет акцента нашего фона сайта */
-  -webkit-backface-visibility: visible;
-  backface-visibility: visible;
-}
-
-/* боковые части конверта */
-.envelope__back {
-  height: 100%;
-  width: 100%;
-  height: 100%;
-  width: 100%;
-  position: absolute;
-  top: 0;
-  left: 0;
-  z-index: 3;
-  background: repeating-linear-gradient(-45deg, var(--convert-theme-darkened), var(--convert-theme-darkened) 10px, var(--convert-theme-clear) 10px, var(--convert-theme-clear) 20px, var(--convert-theme-darkened) 20px, var(--convert-theme-darkened) 30px, var(--convert-theme-clear) 30px, var(--convert-theme-clear) 40px) 0 100%/100% 5px no-repeat, repeating-linear-gradient(-45deg, var(--convert-theme-darkened), var(--convert-theme-darkened) 10px, var(--convert-theme-clear) 10px, var(--convert-theme-clear) 20px, var(--convert-theme-darkened) 20px, var(--convert-theme-darkened) 30px, var(--convert-theme-clear) 30px, var(--convert-theme-clear) 40px) 0 100%/5px 100% no-repeat, repeating-linear-gradient(-45deg, var(--convert-theme-darkened), var(--convert-theme-darkened) 10px, var(--convert-theme-clear) 10px, var(--convert-theme-clear) 20px, var(--convert-theme-darkened) 20px, var(--convert-theme-darkened) 30px, var(--convert-theme-clear) 30px, var(--convert-theme-clear) 40px) 100% 100%/5px 100% no-repeat, var(--convert-theme-darkened);
-  -webkit-clip-path: polygon(80% 40%, 100% 0, 100% 100%, 0 100%, 0 0, 20% 40%);
-  clip-path: polygon(80% 40%, 100% 0, 100% 100%, 0 100%, 0 0, 20% 40%);
-  /* Изменил на цвет акцента нашего фона сайта */
-}
-
-/* нижняя часть конверта */
-.envelope__back:after {
-  height: 100%;
-  width: 100%;
-  background: repeating-linear-gradient(-45deg, var(--convert-theme-ground), var(--convert-theme-ground) 10px, var(--convert-theme-clear) 10px, var(--convert-theme-clear) 20px, var(--convert-theme-ground) 20px, var(--convert-theme-ground) 30px, var(--convert-theme-clear) 30px, var(--convert-theme-clear) 40px) 0 100%/100% 5px no-repeat, var(--convert-theme-ground);
-  content: '';
-  position: absolute;
-  top: 0;
-  left: 0;
-  -webkit-clip-path: polygon(70% 10%, 100% 100%, 0 100%, 30% 10%);
-  clip-path: polygon(70% 10%, 100% 100%, 0 100%, 30% 10%);
-  /* Изменил на цвет акцента нашего фона сайта */
-}
-
-/* ХЗ */
-.envelope__letter {
-  height: 90%;
-  width: 90%;
-  z-index: 1;
-  position: absolute;
-  left: 5%;
-  top: 5%;
-  transition: transform 0.25s 0.25s, z-index 0s 0.25s;
-  transform: translateY(0);
-}
-
-/* фон письма */
-.letter__content {
-  height: 100%;
-  width: 100%;
-  background-color: var(--convert-theme-clear);
-  /* Изменил на цвет нашего фона сайта */
-  top: 0;
-  left: 0;
-  position: absolute;
-  padding: 14px;
-  text-align: justify;
-}
-
-/* ХЗ нижняя часть письма */
-.letter__content:nth-child(2),
-.letter__content:nth-child(3) {
-  transition: transform 0.25s, width 0.2s, height 0.2s;
-  top: 100%;
-  transform-origin: top center;
-  transform: rotateX(180deg);
-  -webkit-backface-visibility: visible;
-  backface-visibility: visible;
-  z-index: 2;
-  border-top: 1px solid #eee;
-}
-
-.letter__content:nth-child(1) {
-  transition: width 0.2s, height 0.2s;
-
-}
-
-/* ХЗ нижняя внутренняя часть письма */
-.letter__content:nth-child(3) {
-  -webkit-backface-visibility: hidden;
-  backface-visibility: hidden;
-}
-
-
-.collage {
-  max-width: 30%;
-  max-height: auto;
-  justify-content: center;
-  align-items: center;
-}
-
-.calendar {
-  max-width: 15%;
-  max-height: auto;
-  justify-content: center;
-  align-items: center;
-}
-
-.photo {
-  max-width: 50%;
-  max-height: auto;
-  justify-content: left;
-  align-items: left;
-}
-.map {
-  max-width: 50%;
-  max-height: auto;
-  justify-content: right;
-  align-items: right;
-}
 /* ------- Анкета  */
 
 button {
   &.general {
-    
+
     /* @apply neomorfic; */
     background: var(--light-theme-color);
     border-radius: 50px;
-    font-size: 2rem;
+    font-size: 2vw;
 
     width: fit-content;
     height: 5rem;
@@ -437,7 +227,7 @@ button {
   margin-bottom: 5px;
   padding-top: 3px;
   cursor: pointer;
-  font-size: 16px;
+  font-size: 4vw;
 }
 
 .control input {
