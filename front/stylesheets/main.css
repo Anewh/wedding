@@ -104,16 +104,23 @@ p {
   }
 
   &.section--type-first {
-    color: white;
+    color: black;
     background-color: rgb(from var(--section-color-first) r g b / 80%);
-    padding-inline: 0%;
-    padding-top: 0%;
-    padding-bottom: 0%
   }
 
   &.section--type-second {
     color: white;
     background-color: var(--section-color-second);
+    padding-inline: 0%;
+    padding-top: 0%;
+    padding-bottom: 0%
+  }
+
+  &.section--type-third {
+    @apply section--type-second;
+    padding-inline: 0%;
+    padding-top: 0%;
+    padding-bottom: 0%
   }
 
   &.section--collage {
