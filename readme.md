@@ -5,10 +5,8 @@
 ```shell
 npm install
 
-npm run sass
 npm run front
 # или
-npm run sass
 npm run front:dev
 
 npm run back
@@ -24,11 +22,11 @@ npm run back:dev
 
 ```shell
 npm i -g @nestjs/cli
-npm i -g sass
 
-npm run sass
-npm run front
+npm run front:prod
+
 npm run build
+npm run back:prod
 ```
 
 ### Запуск

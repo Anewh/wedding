@@ -1,37 +1,124 @@
-// @use "tailwindcss/components";
-// @use "tailwindcss/utilities";
+/* план работ:  */
+/* 1. Конверт и анимация открытия. Анимация страницы +  */
+/* 2. Приветствие */
+/* 3. Время */
+/* 4. Дресс-код  */
+/* 5. Место  */
 
-// ------------ конверт ------------
-// план работ: 
-// 1. Конверт и анимация открытия. Анимация страницы + 
-// 2. Приветствие
-// 3. Время
-// 4. Дресс-код 
-// 5. Место 
-@use "index.css";
+@import "./index.css";
 
-$main-them-color: #f3f3f3;
-$accent-color: #780201;
-$convert-theme-clear: #780201;
-$convert-theme-darkened: #8c0201;
-$convert-theme-ground: #820201;
+:root {
+  --main-theme-color: #f3f3f3;
+  --light-theme-color: #fdf9ee;
+  --accent-color: #780201;
+  --section-color: var(--accent-color);
+  --convert-theme-clear: #780201;
+  --convert-theme-darkened: #8c0201;
+  --convert-theme-ground: #820201;
+}
 
+/* общее */
 
-/* задний фон */
 body {
-  background-color: $main-them-color;
+  background-color: var(--main-theme-color);
   /* Изменил на цвет нашего фона сайта */
   margin: 0;
   padding: 0;
-  font-family: 'Arial', sans-serif;
-  font-size: 12px;
+  font-family: 'Cormorant Infant', 'Arial', sans-serif;
+}
+
+p {
+  font-size: 14px;
+}
+
+@utility neomorfic {
+  border: none;
+  border-radius: 50px;
+  box-shadow: 7px 7px 14px #b1aea7,
+    -7px -7px 14px #ffffff;
+}
+
+.section {
+  @apply flex flex-col items-center mx-auto content-between;
+  @apply neomorfic;
+
+  width: 60%;
+
+  background-color: var(--section-color);
+  padding-inline: 1rem;
+  padding-top: 0.75rem;
+  padding-bottom: 0.75rem;
+
+  .section__header {
+    @apply text-center;
+    color: white;
+    font-weight: 700;
+
+    font-size: 3.75rem;
+    line-height: 1;
+  }
+  
+  .section__subtitle {
+    @apply text-center;
+    color: white;
+
+    font-size: 1.8rem;
+  }
+}
+
+form {
+  @apply flex flex-col items-center;
+
+  .form-body {
+    @apply flex flex-col;
+  
+    background-color: var(--light-theme-color);
+  
+    padding-left: 0.8rem;
+    padding-right: 1.4rem;
+    padding-top: 1.2rem;
+    padding-bottom: 1.7rem;
+  
+    border-radius: 5px;
+  
+    .form-body__field {
+      @apply flex flex-col;
+  
+      font-size: 1.875rem;
+      line-height: 2.25rem;
+  
+      .form-body__label {
+        color: black;
+        margin-bottom: 8px;
+      }
+  
+      .form-body__input--text {
+        background: none;
+        border-bottom-width: 1px;
+        border-color: black;
+        margin-left: 0.7rem;
+
+        &:focus-visible {
+          /* todo */
+        }
+      }
+    }
+  }
+}
+
+/* ------------ конверт ------------ */
+
+.welcome {
+  @apply w-full h-full overflow-hidden;
+  /* TODO Временно, пока не доработан конверт */
+  @apply hidden;
 }
 
 /* внутренняя часть конверта */
 .envelope {
   width: 300px;
   height: 150px;
-  background: $accent-color;
+  background: var(--accent-color);
   position: relative;
 }
 
@@ -125,16 +212,16 @@ body {
   transform-origin: top center;
   -webkit-backface-visibility: hidden;
   backface-visibility: hidden;
-  background: repeating-linear-gradient(-45deg, $accent-color, $accent-color 10px, $convert-theme-clear 10px, $convert-theme-clear 20px, $accent-color 20px, $accent-color 30px, $convert-theme-clear 30px, $convert-theme-clear 40px) 0 0/100% 5px no-repeat, $accent-color;
+  background: repeating-linear-gradient(-45deg var(--accent-color) var(--accent-color) 10px var(--convert-theme-clear) 10px var(--convert-theme-clear) 20px var(--accent-color) 20px var(--accent-color) 30px var(--convert-theme-clear) 30px var(--convert-theme-clear) 40px) 0 0/100% 5px no-repeat var(--accent-color);
   z-index: 4;
-  -webkit-clip-path: polygon(5% 40%, 50% 100%, 95% 40%, 100% 0, 0 0);
+  -webkit-clip-path: polygon(5% 40% 50% 100%, 95% 40%, 100% 0, 0 0);
   clip-path: polygon(5% 40%, 50% 100%, 95% 40%, 100% 0, 0 0);
   /* Изменил на цвет акцента нашего фона сайта */
 }
 
 /* ХЗ внутренняя часть крышки конверта */
 .envelope__flap--inside {
-  background: $accent-color;
+  background: var(--accent-color);
   /* Изменил на цвет акцента нашего фона сайта */
   -webkit-backface-visibility: visible;
   backface-visibility: visible;
@@ -150,7 +237,7 @@ body {
   top: 0;
   left: 0;
   z-index: 3;
-  background: repeating-linear-gradient(-45deg, $convert-theme-darkened, $convert-theme-darkened 10px, $convert-theme-clear 10px, $convert-theme-clear 20px, $convert-theme-darkened 20px, $convert-theme-darkened 30px, $convert-theme-clear 30px, $convert-theme-clear 40px) 0 100%/100% 5px no-repeat, repeating-linear-gradient(-45deg, $convert-theme-darkened, $convert-theme-darkened 10px, $convert-theme-clear 10px, $convert-theme-clear 20px, $convert-theme-darkened 20px, $convert-theme-darkened 30px, $convert-theme-clear 30px, $convert-theme-clear 40px) 0 100%/5px 100% no-repeat, repeating-linear-gradient(-45deg, $convert-theme-darkened, $convert-theme-darkened 10px, $convert-theme-clear 10px, $convert-theme-clear 20px, $convert-theme-darkened 20px, $convert-theme-darkened 30px, $convert-theme-clear 30px, $convert-theme-clear 40px) 100% 100%/5px 100% no-repeat, $convert-theme-darkened;
+  background: repeating-linear-gradient(-45deg, var(--convert-theme-darkened), var(--convert-theme-darkened) 10px, var(--convert-theme-clear) 10px, var(--convert-theme-clear) 20px, var(--convert-theme-darkened) 20px, var(--convert-theme-darkened) 30px, var(--convert-theme-clear) 30px, var(--convert-theme-clear) 40px) 0 100%/100% 5px no-repeat, repeating-linear-gradient(-45deg, var(--convert-theme-darkened), var(--convert-theme-darkened) 10px, var(--convert-theme-clear) 10px, var(--convert-theme-clear) 20px, var(--convert-theme-darkened) 20px, var(--convert-theme-darkened) 30px, var(--convert-theme-clear) 30px, var(--convert-theme-clear) 40px) 0 100%/5px 100% no-repeat, repeating-linear-gradient(-45deg, var(--convert-theme-darkened), var(--convert-theme-darkened) 10px, var(--convert-theme-clear) 10px, var(--convert-theme-clear) 20px, var(--convert-theme-darkened) 20px, var(--convert-theme-darkened) 30px, var(--convert-theme-clear) 30px, var(--convert-theme-clear) 40px) 100% 100%/5px 100% no-repeat, var(--convert-theme-darkened);
   -webkit-clip-path: polygon(80% 40%, 100% 0, 100% 100%, 0 100%, 0 0, 20% 40%);
   clip-path: polygon(80% 40%, 100% 0, 100% 100%, 0 100%, 0 0, 20% 40%);
   /* Изменил на цвет акцента нашего фона сайта */
@@ -160,7 +247,7 @@ body {
 .envelope__back:after {
   height: 100%;
   width: 100%;
-  background: repeating-linear-gradient(-45deg, $convert-theme-ground, $convert-theme-ground 10px, $convert-theme-clear 10px, $convert-theme-clear 20px, $convert-theme-ground 20px, $convert-theme-ground 30px, $convert-theme-clear 30px, $convert-theme-clear 40px) 0 100%/100% 5px no-repeat, $convert-theme-ground;
+  background: repeating-linear-gradient(-45deg, var(--convert-theme-ground), var(--convert-theme-ground) 10px, var(--convert-theme-clear) 10px, var(--convert-theme-clear) 20px, var(--convert-theme-ground) 20px, var(--convert-theme-ground) 30px, var(--convert-theme-clear) 30px, var(--convert-theme-clear) 40px) 0 100%/100% 5px no-repeat, var(--convert-theme-ground);
   content: '';
   position: absolute;
   top: 0;
@@ -186,7 +273,7 @@ body {
 .letter__content {
   height: 100%;
   width: 100%;
-  background-color: $convert-theme-clear;
+  background-color: var(--convert-theme-clear);
   /* Изменил на цвет нашего фона сайта */
   top: 0;
   left: 0;
@@ -220,7 +307,22 @@ body {
 }
 
 
-// ------- Анкета 
+/* ------- Анкета  */
+
+button {
+  &.general {
+    
+    /* @apply neomorfic; */
+    background: var(--light-theme-color);
+    border-radius: 50px;
+    font-size: 2rem;
+
+    width: fit-content;
+    height: 5rem;
+    padding-left: 2rem;
+    padding-right: 2rem;
+  }
+}
 
 .control {
   font-family: arial;
@@ -245,7 +347,7 @@ body {
   left: 0;
   height: 20px;
   width: 20px;
-  background: $convert-theme-ground;
+  background: var(--convert-theme-ground);
   border: 1px solid #afacac;
   border-radius: 0px;
   opacity: 0.75;
@@ -261,7 +363,7 @@ body {
 
 .control:hover input:not([disabled]):checked~.control_indicator,
 .control input:checked:focus~.control_indicator {
-  background: $convert-theme-ground;
+  background: var(--convert-theme-ground);
 }
 
 .control input:disabled~.control_indicator {
