@@ -14,11 +14,11 @@
 :root {
   --main-theme-color: #fcf8ee;
   --light-theme-color: #fcf8ee;
-  --accent-color: #780201;
+  --accent-color: #820201;
   --accent-dark-color: #1e222b;
 
-  --section-color-first: var(--accent-color);
-  --section-color-second: var(--accent-dark-color);
+  --section-color-first: rgb(from var(--main-theme-color) r g b / 80%);
+  --section-color-second: rgb(from var(--accent-color) r g b / 70%);
 
   --convert-theme-clear: #780201;
   --convert-theme-darkened: #8c0201;
@@ -54,12 +54,12 @@ p {
   /* border: 1px solid rgba(255, 255, 255, 0.18); */
 }
 
-/* TODO ONLY TEST всратые сердца на фоне
-body {
-  background-image: url('https://ybis.ru/wp-content/uploads/2023/09/fon-serdechki-2-1.webp');
+/* TODO ONLY TEST всратые сердца на фоне */
+/* body {
+  background-image: url('https://effects1.ru/gallery/Klipart/2-Prazdnik/serdechki/serdechko-25-0.png');
   background-repeat: repeat;
-  animation: body-test 1000s linear infinite; 
-} */
+  animation: body-test 1000s linear infinite;
+}
 
 @keyframes body-test {
   0% {
@@ -69,7 +69,7 @@ body {
   100% {
     background-position-y: -40000px;
   }
-}
+} */
 
 .section {
   @apply flex flex-col items-center mx-auto content-between w-full;
@@ -78,9 +78,9 @@ body {
 
   /* width: 60%; */
 
-  padding-inline: 3rem;
-  padding-top: 0.75rem;
-  padding-bottom: 0.75rem;
+  padding-inline: 5vw;
+  padding-top: 2vh;
+  padding-bottom: 3vh;
 
   .section__header {
     @apply text-center;
@@ -88,60 +88,55 @@ body {
     font-family: 'Denistina', 'Cormorant Infant', 'Arial', sans-serif;
     font-weight: 400;
 
-    font-size: 3vw;
-  }
+    font-size: 4vw;
 
-  .section__header {
-    @apply text-center;
-
-    font-family: 'Denistina', 'Cormorant Infant', 'Arial', sans-serif;
-    font-weight: 400;
-
-    font-size: 3vw;
+    @media (max-width: 768px) {
+      font-size: 8vw;
+    }
   }
 
   .section__subtitle {
     @apply text-center;
 
     font-style: italic;
-    font-size: 1.2vw;
+    font-size: 2vw;
+
+    @media (max-width: 768px) {
+      font-size: 4vw;
+    }
   }
 
   &.section--type-first {
-    color: white;
-    background-color: rgb(from var(--section-color-first) r g b / 80%);
+    color: var(--accent-dark-color);
+    background-color: var(--section-color-first);
   }
 
   &.section--type-second {
     color: white;
-    background-color: rgb(from var(--section-color-second) r g b / 90%);
+    background-color: var(--section-color-second);
   }
 
   &.section--collage {
     @apply flex flex-row justify-between;
 
-    /* max-width: 30%; */
     max-height: auto;
     justify-content: center;
     align-items: center;
   }
 
   &.section--calendar {
-    /* max-width: 15%; */
     max-height: auto;
     justify-content: center;
     align-items: center;
   }
 
   &.section--photo {
-    /* max-width: 50%; */
     max-height: auto;
     justify-content: left;
     align-items: left;
   }
 
   &.section--map {
-    /* max-width: 50%; */
     max-height: auto;
     justify-content: right;
     align-items: right;
