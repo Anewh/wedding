@@ -6,7 +6,7 @@
   <link rel="stylesheet" type="text/css" href="./public/stylesheets/main.css">
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css"
-        integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
+    integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
 </head>
 
 <body>
@@ -102,14 +102,16 @@
     </div>
   </div>
   <main class="flex flex-col items-center mx-auto justify-center sm:w-full md:w-4/6">
-
-    <section class="section section--type-first section--collage">
-      <div class="collage__wrapper">
-        <img class="collage" src="./public/assets/foto1.png">
+    <div
+      class=" section section--type-first section--collage mx-auto max-w-md overflow-hidden md:max-w-7xl pt-0 pb-0 p-0">
+      <div class="md:flex">
+        <div class="md:w-7/12"> <img class="h-full w-30 object-cover md:h-full" src="./public/assets/collage.png" />
+        </div>
+        <div class="flex flex-col place-items-center justify-center md:w-5/12 mt-4">
+          <div class="section__header flex flex-row items-center"> Мария & Андрей <br> 16 августа 2025 </div>
+        </div>
       </div>
-      <div class="section__header ml-5"> Мария & Андрей <br> 16 августа 2025 </div>
-    </section>
-
+    </div>
     <section class="section section--type-second section--hello">
       <div class="section__header">
         Дорогой/Дорогая <br> [Имя гостя]
@@ -135,27 +137,34 @@
       </div>
     </section>
 
-    <section class="section section--type-second section--place">
-      <div class="section__header">
-        Место проведения:
-      </div>
+    <section class="section section--type-second section--timer">
+      До нашего торжества осталось:
+    </section>
 
-      <div class="photo">
-        <img class="" src="./public/assets/place.webp">
-      </div>
-      <div class="map">
-        <div style="position:relative;overflow:hidden;"><a
-             href="https://yandex.ru/maps/org/openhouse/186535918791/?utm_medium=mapframe&utm_source=maps"
-             style="color:#eee;font-size:12px;position:absolute;top:0px;">Openhouse</a><a
-             href="https://yandex.ru/maps/9/lipetsk/category/restaurant/184106394/?utm_medium=mapframe&utm_source=maps"
-             style="color:#eee;font-size:12px;position:absolute;top:14px;">Ресторан в Липецке</a><a
-             href="https://yandex.ru/maps/9/lipetsk/category/conference_and_meeting_hall/51258116372/?utm_medium=mapframe&utm_source=maps"
-             style="color:#eee;font-size:12px;position:absolute;top:28px;">Конференц-зал в Липецке</a><iframe
-                  src="https://yandex.ru/map-widget/v1/?ll=39.594847%2C52.588117&mode=poi&poi%5Bpoint%5D=39.593906%2C52.588616&poi%5Buri%5D=ymapsbm1%3A%2F%2Forg%3Foid%3D186535918791&z=17.19"
-                  width="560" height="400" frameborder="1" allowfullscreen="true" style="position:relative;"></iframe>
+    <div class=" section section--type-first section--collage mx-auto max-w-md overflow-hidden md:max-w-7xl pt-0 pb-0 p-0">
+      <div class=" section__header md:flex">
+        Место проведения: Openhouse
+      </div>      
+      </div>      
+    <div class=" section section--type-first section--collage mx-auto max-w-md overflow-hidden md:max-w-7xl pt-0 pb-0 p-0">
+      <div class="md:flex">
+        <div class="md:w-6/12 w-">
+          <img class="h-full w-30 object-cover md:h-full" src="./public/assets/place.webp" />
+        </div>
+        <div class="flex flex-col place-items-center justify-center md:w-6/12">
+          <div class="h-full w-full object-cover md:h-full" style="position:relative;overflow:hidden;"><a
+              href="https://yandex.ru/maps/org/openhouse/186535918791/?utm_medium=mapframe&utm_source=maps"
+              style="color:#eee;font-size:12px;position:absolute;top:0px;">Openhouse</a><a
+              href="https://yandex.ru/maps/9/lipetsk/category/restaurant/184106394/?utm_medium=mapframe&utm_source=maps"
+              style="color:#eee;font-size:12px;position:absolute;top:14px;">Ресторан в Липецке</a><a
+              href="https://yandex.ru/maps/9/lipetsk/category/conference_and_meeting_hall/51258116372/?utm_medium=mapframe&utm_source=maps"
+              style="color:#eee;font-size:12px;position:absolute;top:28px;">Конференц-зал в Липецке</a><iframe
+              src="https://yandex.ru/map-widget/v1/?ll=39.594847%2C52.588117&mode=poi&poi%5Bpoint%5D=39.593906%2C52.588616&poi%5Buri%5D=ymapsbm1%3A%2F%2Forg%3Foid%3D186535918791&z=17.19"
+              width="100%" height="100%" frameborder="1" allowfullscreen="true" style="position:relative;"></iframe>
+          </div>
         </div>
       </div>
-    </section>
+    </div>
 
     <section class="section section--type-first section--dresscode">
       Мы много старались для того, чтобы этот праздник был очень красивым, поэтому с большим трепетом относимся ко всем

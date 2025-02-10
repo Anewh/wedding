@@ -40,6 +40,15 @@
         url(../../public/fonts/Denistina/denistina_en.ttf) format(opentype);
 }
 
+
+@font-face {
+    font-family: "Montserrat";
+    font-weight: 100;
+    src:
+        local("Montserrat"),
+        url(../../public/fonts/Montserrat/static/Montserrat-Medium.ttf) format(opentype);
+}
+
 /* Light 300 */
 /* Whereas recognition of the inherent dignity */
 /* Light 300 Italic */
