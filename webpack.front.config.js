@@ -5,6 +5,7 @@ module.exports = {
         stylesheets: './front/scripts/stylesheets.js',
         forms: './front/scripts/forms.js',
         timer: './front/scripts/timer.js',
+        dresscode: './front/scripts/dresscode.js',
     },
     target: 'web',
     output: {
