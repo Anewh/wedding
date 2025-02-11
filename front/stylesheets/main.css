@@ -10,6 +10,7 @@
 @import "./fonts.css";
 @import "./convert.css";
 @import "./hearts.css";
+@import "./dresscode.css";
 
 :root {
   --main-theme-color: #fcf8ee;

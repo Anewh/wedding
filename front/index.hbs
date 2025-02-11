@@ -7,6 +7,8 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css"
     integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
+  <script data-main="main" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.1/require.js"></script>
+  <script src="./public/scripts/dresscode.js" type="module" defer></script>
 </head>
 
 <body>
@@ -141,11 +143,12 @@
       До нашего торжества осталось:
     </section>
 
-    <div class=" section section--type-second section--collage mx-auto max-w-md overflow-hidden md:max-w-7xl pt-0 pb-0 p-0">
+    <div
+      class=" section section--type-second section--collage mx-auto max-w-md overflow-hidden md:max-w-7xl pt-0 pb-0 p-0">
       <div class=" section__header md:flex">
         Место проведения: Openhouse
-      </div>      
-      </div>      
+      </div>
+    </div>
     <div class=" section section--type-second section--collage mx-auto max-w-md overflow-hidden md:max-w-7xl pt-0 pb-0">
       <div class="md:flex pl-5 pr-5">
         <div class="md:w-6/12">
@@ -166,15 +169,66 @@
       </div>
     </div>
 
-    <section class="section section--type-first  section--dresscode">
-      Мы много старались для того, чтобы этот праздник был очень красивым, поэтому с большим трепетом относимся ко всем
-      деталям.
-      Поддержите нас вашими улыбками и объятиями, а также красивыми нарядами в палитре торжества:
+    <section class="section section--type-first section--dresscode pl-5 pr-5">
+      <div class="section__header mt-5 ">
+        Дресс-код
+      </div>
+      <div class="section__subtitle mb-5  pl-5 pr-5">
+        Мы много старались для того, чтобы этот праздник был очень красивым, поэтому с большим трепетом относимся ко
+        всем деталям.
+        Поддержите нас вашими улыбками и объятиями, а также красивыми нарядами в палитре торжества:
+      </div>
+      {{!-- <div class="section__subtitle mb-5 flex flex-col">
+        <div class="h-16 grid grid-cols-7 mr-5">
+          <div class="rounded-full h-10 w-10" style="background-color:rgb(11, 10, 10);"></div>
+          <div class="rounded-full h-10 w-10" style="background-color: rgb(107, 9, 8);"></div>
+          <div class="rounded-full h-10 w-10" style="background-color: rgb(214, 214, 214);"></div>
+          <div class="rounded-full h-10 w-10" style="background-color: rgb(84, 84, 84);"></div>
+          <div class="rounded-full h-10 w-10" style="background-color: rgb(56, 56, 56);"></div>
+          <div class="rounded-full h-10 w-10" style="background-color: rgb(183, 162, 142);"></div>
+          <div class="rounded-full h-10 w-10" style="background-color:  rgb(126, 84, 65) ;"></div>
+        </div>
+        <div class="h-32 grid grid-cols-4">
+          <div class="w-16" style="background-color:rgb(11, 10, 10);"></div>
+          <div class="w-16" style="background-color: rgb(107, 9, 8);"></div>
+          <div class="w-16" style="background-color: rgb(214, 214, 214);"></div>
+          <div class="w-16" style="background-color: rgb(84, 84, 84);"></div>
+        </div>
+      </div>
+      </div> --}}
 
-      
+      <div class="container-dresscode">
+        <div class="material-color-picker">
+          <div class="material-color-picker__left-panel">
+            <ol class="color-selector" data-bind="foreach: materialColors">
+              <li>
+                <input name="material-color" type="radio"
+                  data-bind="attr: { id: 'materialColor' + $index() }, checked: selectedColor, value: color">
+                <label
+                  data-bind="attr: { for: 'materialColor' + $index(), title: color }, style: { 'color': $data.variations[4].hex }"></label>
+              </li>
+            </ol>
+          </div>
+          <div class="material-color-picker__right-panel" data-bind="foreach: materialColors">
+            <div class="color-palette-wrapper" data-bind="css: { 'js-active': selectedColor() === color }">
+              <h2 class="color-palette-header" data-bind="text: color"></h2>
+              <ol class="color-palette" data-bind="foreach: variations">
+                <li id="clipboardItem" class="color-palette__item"
+                  data-bind="attr: { 'data-clipboard-text': hex }, style: { 'background-color': hex }">
+                  <span data-bind="text: weight"></span>
+                  <span data-bind="text: hex"></span>
+                  <span class="copied-indicator" data-bind="css: { 'js-copied': copiedHex() === hex }">Color
+                    copied!</span>
+                </li>
+              </ol>
+            </div>
+          </div>
+        </div>
+      </div>
     </section>
 
-    <section class="section section--type-second section--accept-invite container flex justify-center w-full px-40 pt-10 mx-auto">
+    <section
+      class="section section--type-second section--accept-invite container flex justify-center w-full px-40 pt-10 mx-auto">
       <form action="accept-invite" method="post">
         <p class="section__header mb-6">Вы придете?</p>
 
