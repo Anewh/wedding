@@ -32,11 +32,15 @@ body {
   margin: 0;
   padding: 0;
   min-height: 100vh;
-  font-family: 'Cormorant Infant', 'Arial', sans-serif;
-}
+  /* font-family: 'Cormorant Infant', 'Arial', sans-serif; */
+  font-family: 'Montserrat', 'Arial', sans-serif;
+  font-weight: 500;
 
-p {
-  font-size: 4vw;
+  font-size: 1.2vw;
+
+  @media (max-width: 768px) {
+    font-size: 2.4vw;
+  }
 }
 
 @utility neomorfic {
@@ -47,7 +51,7 @@ p {
 }
 
 @utility pergament {
-  backdrop-filter: opacity(20%) blur(9px);
+  backdrop-filter: blur(9px);
   /* backdrop-filter: blur(25px); */
   /* background-color: rgba(173, 52, 52, 0.6); */
   box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
@@ -98,10 +102,6 @@ p {
 
   .section__subtitle {
     @apply text-center;
-
-    font-weight: 500;
-    font-family: 'Montserrat';
-    font-size: 1.2vw;
   }
 
   &.section--type-first {
@@ -166,8 +166,7 @@ p {
 
   .calendar {
     clip-path: polygon()
-
-    /* @apply grid text-right grid-cols-7;
+      /* @apply grid text-right grid-cols-7;
 
     column-gap: 0.9rem;
     row-gap: 0.6rem;
@@ -191,7 +190,6 @@ p {
     } */
   }
 }
-
 
 form {
   @apply flex flex-col items-center;
@@ -241,19 +239,16 @@ form {
 
 /* ------- Анкета  */
 
-button {
-  &.general {
+.button {
+  background: var(--accent-color);
+  border-radius: 40px;
+  font-size: 2vw;
+  color: white;
 
-    /* @apply neomorfic; */
-    background: var(--light-theme-color);
-    border-radius: 50px;
-    font-size: 2vw;
-
-    width: fit-content;
-    height: 5rem;
-    padding-left: 2rem;
-    padding-right: 2rem;
-  }
+  width: fit-content;
+  height: 3.5rem;
+  padding-left: 2rem;
+  padding-right: 2rem;
 }
 
 .control {

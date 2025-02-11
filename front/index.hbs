@@ -3,9 +3,12 @@
 <html>
 
 <head>
-  <link rel="stylesheet" type="text/css" href="./public/stylesheets/main.css">
-  <script src="./public/scripts/timer.js"></script>
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <script type="module" src="./public/scripts/timer.js"></script>
+  <script type="module" src="./public/scripts/forms.js"></script>
+  <script type="module" src="./public/scripts/stylesheets.js"></script>
+
   <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css"
         integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
 </head>
@@ -102,7 +105,7 @@
       </div>
     </div>
   </div>
-  <main class="flex flex-col items-center mx-auto justify-center sm:w-full md:w-4/6">
+  <main class="flex flex-col items-center mx-auto justify-center pt-5 pb-64 sm:w-full md:w-4/6">
     <div class="section section--type-second section--collage overflow-hidden pt-0 pb-0 p-0">
       <div class="md:flex">
         <div class="md:w-7/12"> <img class="h-full w-30 object-cover md:h-full" src="./public/assets/collage.png" />
@@ -114,7 +117,13 @@
     </div>
     <section class="section section--type-first section--hello">
       <div class="section__header mt-5 ">
-        Дорогой/Дорогая <br> [Имя гостя]
+        {{#if (same user.sex 'm')}} Дорогой
+        {{else if (same user.sex 'f')}} Дорогая
+        {{else}} Дорогой/Дорогая
+        {{/if}}
+        {{#if user.name}} {{user.name}}
+        {{else}} Гость
+        {{/if}}
       </div>
       <div class="section__subtitle mb-5">
         Давно ждали момента, когда сможем разделить с Вами самый важный и счастливый день в нашей жизни. Совсем скоро
@@ -184,7 +193,7 @@
       </div>
     </div>
 
-    <section class="section section--type-first  section--dresscode">
+    <section class="section section--type-first section--dresscode">
       Мы много старались для того, чтобы этот праздник был очень красивым, поэтому с большим трепетом относимся ко всем
       деталям.
       Поддержите нас вашими улыбками и объятиями, а также красивыми нарядами в палитре торжества:
@@ -193,21 +202,18 @@
     </section>
 
     <section
-             class="section section--type-second section--accept-invite container flex justify-center w-full px-40 pt-10 mx-auto">
-      <form action="accept-invite" method="post">
-        <p class="section__header mb-6">Вы придете?</p>
+             class="section section--type-first section--accept-invite container flex justify-center w-full px-40 pt-10 mx-auto">
+      <form id="accept-invite" class="mb-12" method="post">
+        <p class="section__header mt-3 mb-6">Вы придете? Мы будем.</p>
 
-        <p class="section__subtitle mb-6">какой-то уважительный текст который тяжело читать в этом шрифте на этом
-          фоне</p>
-
-        <div class="form-body form-body--accept-invite mb-6">
+        {{!-- <div class="form-body form-body--accept-invite mb-6">
           <div class="form-body__field pb-6">
-            <label class="form-body__label" for="phone">Вроде тут телефон</label>
+            <label class="form-body__label" for="phone">Укажите </label>
             <input class="form-body__input--text" type="text" name="phone" id="phone">
           </div>
-        </div>
+        </div> --}}
 
-        <button class="general">Я буду!</button>
+        <button class="button">Я тоже буду!</button>
       </form>
     </section>
 
