@@ -107,6 +107,9 @@ p {
   &.section--type-first {
     color: black;
     background-color: rgb(from var(--section-color-first) r g b / 80%);
+    padding-inline: 0%;
+    padding-top: 0%;
+    padding-bottom: 0%
   }
 
   &.section--type-second {
@@ -117,12 +120,12 @@ p {
     padding-bottom: 0%
   }
 
-  &.section--type-third {
+  /* &.section--type-third {
     @apply section--type-second;
     padding-inline: 0%;
     padding-top: 0%;
     padding-bottom: 0%
-  }
+  } */
 
   &.section--collage {
     @apply flex flex-row justify-between;
@@ -203,6 +206,22 @@ form {
   @apply flex w-full h-full overflow-hidden;
   /* TODO Временно, пока не доработан конверт */
   @apply hidden;
+}
+
+
+.accent {
+  background-color: var(--section-color-second);
+  height: 2px;
+  padding-inline: 0%;
+  padding-top: 0%;
+  padding-bottom: 0%
+}
+
+.accent-text {
+  color: var(--section-color-second);
+  padding-inline: 0%;
+  padding-top: 0%;
+  padding-bottom: 0%
 }
 
 /* ------- Анкета  */
