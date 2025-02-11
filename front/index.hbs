@@ -4,9 +4,10 @@
 
 <head>
   <link rel="stylesheet" type="text/css" href="./public/stylesheets/main.css">
+  <script src="./public/scripts/timer.js"></script>
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css"
-    integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
+        integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
 </head>
 
 <body>
@@ -102,8 +103,7 @@
     </div>
   </div>
   <main class="flex flex-col items-center mx-auto justify-center sm:w-full md:w-4/6">
-    <div
-      class=" section section--type-second section--collage mx-auto max-w-md overflow-hidden md:max-w-7xl pt-0 pb-0 p-0">
+    <div class="section section--type-second section--collage overflow-hidden pt-0 pb-0 p-0">
       <div class="md:flex">
         <div class="md:w-7/12"> <img class="h-full w-30 object-cover md:h-full" src="./public/assets/collage.png" />
         </div>
@@ -125,27 +125,44 @@
     </section>
 
     <section class="section section--type-second section--calendar">
-      <div class="flex flex-row justify-between">
+      <div class="flex flex-col md:flex-row justify-between">
         <div class="flex flex-col">
-          <div class="section__subtitle mx-auto">
+          <div class="section__header mx-auto mb-3 mt-3">
             До нашего торжества осталось
           </div>
+          <div class="timer__wrapper mx-auto mb-6">
+            <div class="timer">
+              <div class="timer__item timer__days">00</div>
+              <div class="separator">:</div>
+              <div class="timer__item timer__hours">00</div>
+              <div class="separator">:</div>
+              <div class="timer__item timer__minutes">00</div>
+              <div class="separator">:</div>
+              <div class="timer__item timer__seconds">00</div>
+            </div>
+          </div>
         </div>
-        <div class="calendar__wrapper">
+        <div class="calendar__wrapper w-full md:h-full md:w-1/2">
           <img class="calendar" src="./public/assets/calendar.png">
+
+          {{!-- <div class="calendar__header">
+            A U G U S T
+          </div>
+          <div class="calendar calendar--1">
+            <div>1</div>
+            ...
+            <div>31</div>
+          </div> --}}
         </div>
       </div>
     </section>
 
-    <section class="section section--type-first section--timer">
-      До нашего торжества осталось:
-    </section>
-
-    <div class=" section section--type-second section--collage mx-auto max-w-md overflow-hidden md:max-w-7xl pt-0 pb-0 p-0">
+    <div
+         class=" section section--type-second section--collage mx-auto max-w-md overflow-hidden md:max-w-7xl pt-0 pb-0 p-0">
       <div class=" section__header md:flex">
         Место проведения: Openhouse
-      </div>      
-      </div>      
+      </div>
+    </div>
     <div class=" section section--type-second section--collage mx-auto max-w-md overflow-hidden md:max-w-7xl pt-0 pb-0">
       <div class="md:flex pl-5 pr-5">
         <div class="md:w-6/12">
@@ -153,14 +170,15 @@
         </div>
         <div class="flex flex-col place-items-center justify-center md:w-6/12">
           <div class="h-full w-full object-cover md:h-full" style="position:relative;overflow:hidden;"><a
-              href="https://yandex.ru/maps/org/openhouse/186535918791/?utm_medium=mapframe&utm_source=maps"
-              style="color:#eee;font-size:12px;position:absolute;top:0px;">Openhouse</a><a
-              href="https://yandex.ru/maps/9/lipetsk/category/restaurant/184106394/?utm_medium=mapframe&utm_source=maps"
-              style="color:#eee;font-size:12px;position:absolute;top:14px;">Ресторан в Липецке</a><a
-              href="https://yandex.ru/maps/9/lipetsk/category/conference_and_meeting_hall/51258116372/?utm_medium=mapframe&utm_source=maps"
-              style="color:#eee;font-size:12px;position:absolute;top:28px;">Конференц-зал в Липецке</a><iframe
-              src="https://yandex.ru/map-widget/v1/?ll=39.594847%2C52.588117&mode=poi&poi%5Bpoint%5D=39.593906%2C52.588616&poi%5Buri%5D=ymapsbm1%3A%2F%2Forg%3Foid%3D186535918791&z=17.19"
-              width="100%" height="100%" frameborder="1" allowfullscreen="true" style="position:relative;"></iframe>
+               href="https://yandex.ru/maps/org/openhouse/186535918791/?utm_medium=mapframe&utm_source=maps"
+               style="color:#eee;font-size:12px;position:absolute;top:0px;">Openhouse</a><a
+               href="https://yandex.ru/maps/9/lipetsk/category/restaurant/184106394/?utm_medium=mapframe&utm_source=maps"
+               style="color:#eee;font-size:12px;position:absolute;top:14px;">Ресторан в Липецке</a><a
+               href="https://yandex.ru/maps/9/lipetsk/category/conference_and_meeting_hall/51258116372/?utm_medium=mapframe&utm_source=maps"
+               style="color:#eee;font-size:12px;position:absolute;top:28px;">Конференц-зал в Липецке</a><iframe
+                    src="https://yandex.ru/map-widget/v1/?ll=39.594847%2C52.588117&mode=poi&poi%5Bpoint%5D=39.593906%2C52.588616&poi%5Buri%5D=ymapsbm1%3A%2F%2Forg%3Foid%3D186535918791&z=17.19"
+                    width="100%" height="100%" frameborder="1" allowfullscreen="true"
+                    style="position:relative;"></iframe>
           </div>
         </div>
       </div>
@@ -171,10 +189,11 @@
       деталям.
       Поддержите нас вашими улыбками и объятиями, а также красивыми нарядами в палитре торжества:
 
-      
+
     </section>
 
-    <section class="section section--type-second section--accept-invite container flex justify-center w-full px-40 pt-10 mx-auto">
+    <section
+             class="section section--type-second section--accept-invite container flex justify-center w-full px-40 pt-10 mx-auto">
       <form action="accept-invite" method="post">
         <p class="section__header mb-6">Вы придете?</p>
 

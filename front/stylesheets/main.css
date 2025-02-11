@@ -10,6 +10,7 @@
 @import "./fonts.css";
 @import "./convert.css";
 @import "./hearts.css";
+@import "./timer.css";
 
 :root {
   --main-theme-color: #fcf8ee;
@@ -46,8 +47,8 @@ p {
 }
 
 @utility pergament {
-  /* backdrop-filter: opacity(20%) blur(9px); */
-  backdrop-filter: blur(25px);
+  backdrop-filter: opacity(20%) blur(9px);
+  /* backdrop-filter: blur(25px); */
   /* background-color: rgba(173, 52, 52, 0.6); */
   box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
   /* border-radius: 10px; */
@@ -98,29 +99,26 @@ p {
   .section__subtitle {
     @apply text-center;
 
-    font-weight: 100;
+    font-weight: 500;
     font-family: 'Montserrat';
     font-size: 1.2vw;
   }
 
   &.section--type-first {
     color: black;
-    background-color: rgb(from var(--section-color-first) r g b / 80%);
+    background-color: var(--section-color-first);
   }
 
   &.section--type-second {
     color: white;
     background-color: var(--section-color-second);
-    padding-inline: 0%;
-    padding-top: 0%;
-    padding-bottom: 0%
+    padding: 0;
   }
 
   &.section--type-third {
-    @apply section--type-second;
-    padding-inline: 0%;
-    padding-top: 0%;
-    padding-bottom: 0%
+    color: white;
+    background-color: var(--section-color-second);
+    padding: 0;
   }
 
   &.section--collage {
@@ -155,8 +153,45 @@ p {
 }
 
 .calendar__wrapper {
-  max-width: 50%
+  /* @apply flex flex-col items-center; */
+
+  /* min-width: 50%; */
+  /* font-weight: 400; */
+  /* font-family: 'Montserrat'; */
+
+  /* .calendar__header {
+    font-size: 1.3rem;
+    margin-bottom: 10px;
+  } */
+
+  .calendar {
+    clip-path: polygon()
+
+    /* @apply grid text-right grid-cols-7;
+
+    column-gap: 0.9rem;
+    row-gap: 0.6rem;
+    width: fit-content;
+    color: gray;
+
+    div:first-child {
+      grid-column: 5;
+    }
+
+    &.calendar--1 {
+      @apply grid-rows-5;
+
+      div:nth-child(7n+2) {
+        color: black;
+      }
+
+      div:nth-child(7n+3) {
+        color: black;
+      }
+    } */
+  }
 }
+
 
 form {
   @apply flex flex-col items-center;

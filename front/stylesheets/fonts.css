@@ -8,6 +8,14 @@
 
 @font-face {
     font-family: "Cormorant Infant";
+    font-weight: 500;
+    src:
+        local("Cormorant Infant"),
+        url(../../public/fonts/Cormorant_Infant/CormorantInfant-SemiBold.ttf) format(opentype);
+}
+
+@font-face {
+    font-family: "Cormorant Infant";
     font-weight: 700;
     src:
         local("Cormorant Infant"),
@@ -40,10 +48,17 @@
         url(../../public/fonts/Denistina/denistina_en.ttf) format(opentype);
 }
 
+@font-face {
+    font-family: "Montserrat";
+    font-weight: 500;
+    src:
+        local("Montserrat"),
+        url(../../public/fonts/Montserrat/static/Montserrat-Medium.ttf) format(opentype);
+}
 
 @font-face {
     font-family: "Montserrat";
-    font-weight: 100;
+    font-weight: 500;
     src:
         local("Montserrat"),
         url(../../public/fonts/Montserrat/static/Montserrat-Medium.ttf) format(opentype);
