@@ -11,6 +11,7 @@
 @import "./convert.css";
 @import "./hearts.css";
 @import "./timer.css";
+@import "./dresscode.css";
 
 :root {
   --main-theme-color: #fcf8ee;
@@ -107,6 +108,9 @@ body {
   &.section--type-first {
     color: black;
     background-color: var(--section-color-first);
+    padding-inline: 0%;
+    padding-top: 0%;
+    padding-bottom: 0%
   }
 
   &.section--type-second {
@@ -115,11 +119,12 @@ body {
     padding: 0;
   }
 
-  &.section--type-third {
-    color: white;
-    background-color: var(--section-color-second);
-    padding: 0;
-  }
+  /* &.section--type-third {
+    @apply section--type-second;
+    padding-inline: 0%;
+    padding-top: 0%;
+    padding-bottom: 0%
+  } */
 
   &.section--collage {
     @apply flex flex-row justify-between;
@@ -235,6 +240,22 @@ form {
   @apply flex w-full h-full overflow-hidden;
   /* TODO Временно, пока не доработан конверт */
   @apply hidden;
+}
+
+
+.accent {
+  background-color: var(--section-color-second);
+  height: 2px;
+  padding-inline: 0%;
+  padding-top: 0%;
+  padding-bottom: 0%
+}
+
+.accent-text {
+  color: var(--section-color-second);
+  padding-inline: 0%;
+  padding-top: 0%;
+  padding-bottom: 0%
 }
 
 /* ------- Анкета  */
