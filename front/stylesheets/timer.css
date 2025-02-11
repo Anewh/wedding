@@ -1,12 +1,11 @@
 .timer__wrapper {
     .timer {
-        display: grid;
-        grid-template-columns: 4.5rem 0.5rem 4.5rem 0.5rem 4.5rem 0.5rem 4.5rem;
-        justify-items: center;
+        @apply grid grid-cols-7 justify-center text-center;
 
         font-weight: 500;
         font-family: 'Montserrat';
         font-size: 2.7vw;
+        column-gap: 0.5rem;
 
         width: fit-content;
 
