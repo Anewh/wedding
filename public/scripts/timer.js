@@ -1,4 +1,6 @@
 document.addEventListener('DOMContentLoaded', () => {
+    const elTimerHeader = document.querySelector('.timer__header');
+
     // Установите конечную дату
     const deadline = new Date('2025-08-16T15:30:00');
 
@@ -15,7 +17,11 @@ document.addEventListener('DOMContentLoaded', () => {
     // Функция обновления таймера
     const updateTimer = () => {
         const now = new Date();
-        const diff = Math.max(0, deadline - now);
+        if (deadline - now < 0) {
+            elTimerHeader.textContent = 'После начала нашей свадьбы прошло:';
+        }
+
+        const diff = Math.abs(deadline - now);
 
         const days = Math.floor(diff / (1000 * 60 * 60 * 24));
         const hours = Math.floor((diff / (1000 * 60 * 60)) % 24);
@@ -31,10 +37,6 @@ document.addEventListener('DOMContentLoaded', () => {
         elHours.dataset.title = declensionNum(hours, ['час', 'часа', 'часов']);
         elMinutes.dataset.title = declensionNum(minutes, ['минута', 'минуты', 'минут']);
         elSeconds.dataset.title = declensionNum(seconds, ['секунда', 'секунды', 'секунд']);
-
-        if (diff === 0) {
-            clearInterval(timerId);
-        }
     };
 
     // Запустите таймер
