@@ -6,7 +6,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
   <script type="module" src="./public/scripts/timer.js"></script>
-  <script type="module" src="./public/scripts/forms.js"></script>
+  <script type="module" src="./public/scripts/forms.ts"></script>
   <script type="module" src="./public/scripts/stylesheets.js"></script>
 
   <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css"
@@ -167,14 +167,12 @@
       </div>
     </section>
 
-    <div
-      class=" section section--type-second section--collage pt-0 pb-0 p-0">
+    <div class=" section section--type-second section--collage pt-0 pb-0 p-0">
       <div class=" section__header md:flex pt-2">
         Место проведения: Openhouse
       </div>
     </div>
-    <div
-      class=" section section--type-second section--collage pt-0 pb-5 md:pb-0">
+    <div class=" section section--type-second section--collage pt-0 pb-5 md:pb-0">
       <div class="md:flex pl-5 pr-5 pb-5 md:pb-0">
         <div class="md:w-6/12 mb-5 md:mb-0">
           <img class="h-full w-30 object-cover md:h-full" src="./public/assets/place.webp" />
@@ -257,33 +255,34 @@
       </div>
     </section>
 
-    <section
-      class="section section--type-second section--accept-invite flex justify-center w-full px-40 pt-10 mx-auto">
-      <form id="accept-invite" class="mb-12" method="post">
-        <p class="section__header mt-3 mb-6">Вы придете? Мы будем.</p>
+    {{#unless user.invited}}
+      <section id="accept-invite-section" class="section section--type-second section--accept-invite container flex justify-center w-full px-40 pt-10 mx-auto">
+        <form id="accept-invite" class="mb-12" method="post">
+          <p class="section__header mt-3 mb-6">Вы придете? Мы будем.</p>
 
-        {{!-- <div class="form-body form-body--accept-invite mb-6">
+          {{!-- <div class="form-body form-body--accept-invite mb-6">
           <div class="form-body__field pb-6">
             <label class="form-body__label" for="phone">Укажите </label>
             <input class="form-body__input--text" type="text" name="phone" id="phone">
           </div>
         </div> --}}
 
-        <button class="button button-neo-red">Я тоже буду!</button>
-      </form>
-    </section>
+          <button class="button">Я тоже буду!</button>
+        </form>
+      </section>
+    {{/unless}}
+     <div id="after-invitation" {{#unless user.invited}}class="hidden" {{/unless}}>
     <section class="section section--type-first pl-5 pr-5">
-      <div
-        class=" section section--type-first section--collage pt-0 pb-0 p-0">
+      <div class=" section section--type-first section--collage pt-0 pb-0 p-0">
         <div class="md:flex">
           <div class="md:w-5/12"> <img class="h-full w-30 object-cover md:h-full" src="./public/assets/duet.jpg" />
           </div>
           <div class="flex flex-col place-items-center justify-between md:w-7/12 mt-4">
             <div class="flex flex-col md:w-1/12 place-items-center ">
-          <div class="h-10 place-items-center mb-5 md:h-10">
-            <img src="./public/assets/black-heart-empty.png" class="h-full object-cover md:h-full">
-          </div>
-        </div>
+              <div class="h-10 place-items-center mb-5 md:h-10">
+                <img src="./public/assets/black-heart-empty.png" class="h-full object-cover md:h-full">
+              </div>
+            </div>
             <div class="flex flex-col md:w-10/12">
               <div class="section__header mb-5">
                 Примерная программа дня
@@ -294,77 +293,76 @@
                   <div> Сбор гостей </div>
                 </div>
               </div>
-              <hr class="accent mt-3 mb-3" />
-              <div class="flex flex-row justify-between">
-                <div class="section__subtitle mr-4"> 16:00 </div>
-                <div class="section__subtitle ml-4 place-items-end">
-                  <div> Выездная церемония </div>
+              <div class="flex flex-col md:w-10/12">
+                <div class="section__header mb-5">
+                  Примерная программа дня
                 </div>
-              </div>
-              <hr class="accent mt-3 mb-3" />
-              <div class="flex flex-row justify-between">
-                <div class="section__subtitle mr-4"> 16:30 </div>
-                <div class="section__subtitle ml-4 place-items-end">
-                  <div> Начало банкета </div>
+                <div class="flex flex-row justify-between">
+                  <div class="section__subtitle mr-4"> 15:30 </div>
+                  <div class="section__subtitle ml-4 place-items-end">
+                    <div> Сбор гостей </div>
+                  </div>
                 </div>
-              </div>
-              <hr class="accent mt-3 mb-3" />
-              <div class="flex flex-row justify-between">
-                <div class="section__subtitle mr-4"> 18:00 </div>
-                <div class="section__subtitle ml-4 place-items-end">
-                  <div> Первый танец </div>
+                <hr class="accent mt-3 mb-3" />
+                <div class="flex flex-row justify-between">
+                  <div class="section__subtitle mr-4"> 16:00 </div>
+                  <div class="section__subtitle ml-4 place-items-end">
+                    <div> Выездная церемония </div>
+                  </div>
                 </div>
-              </div>
-              <hr class="accent mt-3 mb-3" />
-              <div class="flex flex-row justify-between">
-                <div class="section__subtitle mr-4"> 21:00 </div>
-                <div class="section__subtitle ml-4 place-items-end">
-                  <div> Торт </div>
+                <hr class="accent mt-3 mb-3" />
+                <div class="flex flex-row justify-between">
+                  <div class="section__subtitle mr-4"> 16:30 </div>
+                  <div class="section__subtitle ml-4 place-items-end">
+                    <div> Начало банкета </div>
+                  </div>
                 </div>
-              </div>
-              <hr class="accent mt-3 mb-3" />
-              <div class="flex flex-row justify-between">
-                <div class="section__subtitle mr-4"> 23:00 </div>
-                <div class="section__subtitle ml-4 place-items-end">
-                  <div> Конец торжества </div>
+                <hr class="accent mt-3 mb-3" />
+                <div class="flex flex-row justify-between">
+                  <div class="section__subtitle mr-4"> 18:00 </div>
+                  <div class="section__subtitle ml-4 place-items-end">
+                    <div> Первый танец </div>
+                  </div>
+                </div>
+                <hr class="accent mt-3 mb-3" />
+                <div class="flex flex-row justify-between">
+                  <div class="section__subtitle mr-4"> 21:00 </div>
+                  <div class="section__subtitle ml-4 place-items-end">
+                    <div> Торт </div>
+                  </div>
+                </div>
+                <hr class="accent mt-3 mb-3" />
+                <div class="flex flex-row justify-between">
+                  <div class="section__subtitle mr-4"> 23:00 </div>
+                  <div class="section__subtitle ml-4 place-items-end">
+                    <div> Конец торжества </div>
+                  </div>
                 </div>
               </div>
             </div>
             <div class="flex flex-col md:w-1/12 place-items-center ">
-          <div class="h-10 place-items-center mb-5 md:h-10">
-            <img src="./public/assets/black-heart-empty.png" class="h-full object-cover md:h-full">
+              <div class="h-10 place-items-center mb-5 md:h-10">
+                <img src="./public/assets/black-heart-empty.png" class="h-full object-cover md:h-full">
+              </div>
+            </div>
           </div>
         </div>
-          </div>
-        </div>
-      </div>
     </section>
     <section class="section section--type-second">
       <div class="section__header mt-5 ">
         Подарки
       </div>
-      <div class="section__subtitle mb-5">
-        Главное для нас - ваше внимание, а ваши пожелания в конверте будут лучшим подарком, который поможет исполнить
-        наши мечты
-        Мы очень любим совместный досуг, особенно, если он помогает саморазвитию. Если вы планировали подарить букет, то
-        в качестве альтернативы мы были бы очень рады сертификату на мастер-класс на ваш выбор.
-      </div>
-      <div class="flex flex-col md:w-1/12">
-        <div class="section__header place-items-center flex flex-row mt-5 mb-5">
-          <img class="w-14 object-cover place-items-center md:h-full" src="./public/assets/white-heart.png" />
-        </div>
       </div>
     </section>
     <section class="section section--type-first pl-5 pr-5">
-      <div
-        class=" section section--type-first section--collage pt-0 pb-0 p-0">
+      <div class=" section section--type-first section--collage pt-0 pb-0 p-0">
         <div class="md:flex">
           <div class="flex flex-col place-items-center justify-between md:w-7/12 mt-4">
             <div class="flex flex-col md:w-1/12 place-items-center ">
-          <div class="h-10 place-items-center mb-5 md:h-10">
-            <img src="./public/assets/black-heart-empty.png" class="h-full object-cover md:h-full">
-          </div>
-        </div>
+              <div class="h-10 place-items-center mb-5 md:h-10">
+                <img src="./public/assets/black-heart-empty.png" class="h-full object-cover md:h-full">
+              </div>
+            </div>
             <div class="flex flex-col md:w-10/12">
               <div class="section__header mb-5">
                 Контакты
@@ -376,9 +374,14 @@
                   туда фотографии, сделанные до или во время свадьбы.
                 </div>
                 <div class="flex flex-row justify-between place-items-center mt-4 mb-8">
-                    <button class="button button-neo-white button-big md:w-2/6 mr-3" href="#">Общий чат</button>
-                    <button class="button button-neo-white button-big md:w-2/6" href="#">Галлерея</button>
+                  <button class="button button-neo-white button-big md:w-2/6 mr-3" href="#">Общий чат</button>
+                  <button class="button button-neo-white button-big md:w-2/6" href="#">Галлерея</button>
                 </div>
+              </div>
+            </div>
+            <div class="flex flex-col md:w-1/12 place-items-center ">
+              <div class="h-10 place-items-center mb-5 md:h-10">
+                <img src="./public/assets/black-heart-empty.png" class="h-full object-cover md:h-full">
               </div>
             </div>
           </div>
@@ -389,14 +392,14 @@
     </section>
 
     <section class="section section--type-first">
-      <div class="section__subtitle place-items-center">
+      <div class="section__subtitle place-items-center mt-3">
         <div>
           Если у вас возникнут вопросы, можете обратиться к нашему организатору – Валентине
         </div>
       </div>
 
       <div class="flex flex-col md:w-4/12 mt-3 mb-3 justify-center place-items-center w-64">
-            <img class="round h-full round md:h-full" src="./public/assets/org.jpg" />
+        <img class="round h-full round md:h-full" src="./public/assets/org.jpg" />
       </div>
       <div class="flex flex-col md:w-9/12">
         <div class="flex flex-row justify-between">
@@ -449,8 +452,9 @@
         <div class="section__header place-items-center flex flex-row mt-5 mb-5" style="max-height:10% max-width:auto">
           <img class="w-14 object-cover place-items-center md:h-full" src="./public/assets/red-heart.png" />
         </div>
-      </div>
     </section>
+    </div>
+    </div>
   </main>
 </body>
 

@@ -3,7 +3,8 @@ const path = require('path');
 module.exports = {
     entry: {
         stylesheets: './front/scripts/stylesheets.js',
-        forms: './front/scripts/forms.js',
+        'page-logic': './front/scripts/page-logic.ts',
+        forms: './front/scripts/forms.ts',
         timer: './front/scripts/timer.js',
         dresscode: './front/scripts/dresscode.js',
     },
@@ -29,14 +30,4 @@ module.exports = {
             },
         ],
     },
-    devServer: {
-        static: {
-            directory: path.resolve(__dirname, 'public'),
-        },
-        port: 3000,
-        open: true,
-        hot: true,
-        compress: true,
-        historyApiFallback: true,
-    }
 };
