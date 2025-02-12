@@ -167,7 +167,8 @@
       </div>
     </section>
 
-    <div class=" section section--type-second section--collage mx-auto max-w-md overflow-hidden md:max-w-7xl pt-0 pb-0 p-0">
+    <div
+         class=" section section--type-second section--collage mx-auto max-w-md overflow-hidden md:max-w-7xl pt-0 pb-0 p-0">
       <div class=" section__header md:flex">
         Место проведения: Openhouse
       </div>
@@ -252,156 +253,163 @@
       </div>
     </section>
 
-    <section class="section section--type-second section--accept-invite container flex justify-center w-full px-40 pt-10 mx-auto">
-      <form id="accept-invite" class="mb-12" method="post">
-        <p class="section__header mt-3 mb-6">Вы придете? Мы будем.</p>
+    {{#unless user.invited}}
+      <section id="accept-invite-section" class="section section--type-second section--accept-invite container flex justify-center w-full px-40 pt-10 mx-auto">
+        <form id="accept-invite" class="mb-12" method="post">
+          <p class="section__header mt-3 mb-6">Вы придете? Мы будем.</p>
 
-        {{!-- <div class="form-body form-body--accept-invite mb-6">
+          {{!-- <div class="form-body form-body--accept-invite mb-6">
           <div class="form-body__field pb-6">
             <label class="form-body__label" for="phone">Укажите </label>
             <input class="form-body__input--text" type="text" name="phone" id="phone">
           </div>
         </div> --}}
 
-        <button class="button">Я тоже буду!</button>
-      </form>
-    </section>
-    <section class="section section--type-first pl-5 pr-5">
-      <div
-        class=" section section--type-first section--collage mx-auto max-w-md overflow-hidden md:max-w-7xl pt-0 pb-0 p-0">
-        <div class="md:flex">
-          <div class="md:w-5/12"> <img class="h-full w-30 object-cover md:h-full" src="./public/assets/duet.png" />
-          </div>
-          <div class="flex flex-col place-items-center justify-between md:w-7/12 mt-4">
-            <div class="flex flex-col md:w-1/12">
-              <div class="section__header place-items-center mb-5">
-                <img class="h-full w-10 object-cover md:h-full" src="./public/assets/black-heart-empty.png" />
-              </div>
+          <button class="button">Я тоже буду!</button>
+        </form>
+      </section>
+    {{/unless}}
+
+    <div id="after-invitation" {{#unless user.invited}}class="hidden" {{/unless}}>
+      <section class="section section--type-first pl-5 pr-5">
+        <div
+             class=" section section--type-first section--collage mx-auto max-w-md overflow-hidden md:max-w-7xl pt-0 pb-0 p-0">
+          <div class="md:flex">
+            <div class="md:w-5/12"> <img class="h-full w-30 object-cover md:h-full" src="./public/assets/duet.png" />
             </div>
-            <div class="flex flex-col md:w-10/12">
-              <div class="section__header mb-5">
-                Примерная программа дня
-              </div>
-              <div class="flex flex-row justify-between">
-                <div class="section__subtitle mr-4"> 15:30 </div>
-                <div class="section__subtitle ml-4 place-items-end">
-                  <div> Сбор гостей </div>
+            <div class="flex flex-col place-items-center justify-between md:w-7/12 mt-4">
+              <div class="flex flex-col md:w-1/12">
+                <div class="section__header place-items-center mb-5">
+                  <img class="h-full w-10 object-cover md:h-full" src="./public/assets/black-heart-empty.png" />
                 </div>
               </div>
-              <hr class="accent mt-3 mb-3" />
-              <div class="flex flex-row justify-between">
-                <div class="section__subtitle mr-4"> 16:00 </div>
-                <div class="section__subtitle ml-4 place-items-end">
-                  <div> Выездная церемония </div>
+              <div class="flex flex-col md:w-10/12">
+                <div class="section__header mb-5">
+                  Примерная программа дня
+                </div>
+                <div class="flex flex-row justify-between">
+                  <div class="section__subtitle mr-4"> 15:30 </div>
+                  <div class="section__subtitle ml-4 place-items-end">
+                    <div> Сбор гостей </div>
+                  </div>
+                </div>
+                <hr class="accent mt-3 mb-3" />
+                <div class="flex flex-row justify-between">
+                  <div class="section__subtitle mr-4"> 16:00 </div>
+                  <div class="section__subtitle ml-4 place-items-end">
+                    <div> Выездная церемония </div>
+                  </div>
+                </div>
+                <hr class="accent mt-3 mb-3" />
+                <div class="flex flex-row justify-between">
+                  <div class="section__subtitle mr-4"> 16:30 </div>
+                  <div class="section__subtitle ml-4 place-items-end">
+                    <div> Начало банкета </div>
+                  </div>
+                </div>
+                <hr class="accent mt-3 mb-3" />
+                <div class="flex flex-row justify-between">
+                  <div class="section__subtitle mr-4"> 18:00 </div>
+                  <div class="section__subtitle ml-4 place-items-end">
+                    <div> Первый танец </div>
+                  </div>
+                </div>
+                <hr class="accent mt-3 mb-3" />
+                <div class="flex flex-row justify-between">
+                  <div class="section__subtitle mr-4"> 21:00 </div>
+                  <div class="section__subtitle ml-4 place-items-end">
+                    <div> Торт </div>
+                  </div>
+                </div>
+                <hr class="accent mt-3 mb-3" />
+                <div class="flex flex-row justify-between">
+                  <div class="section__subtitle mr-4"> 23:00 </div>
+                  <div class="section__subtitle ml-4 place-items-end">
+                    <div> Конец торжества </div>
+                  </div>
                 </div>
               </div>
-              <hr class="accent mt-3 mb-3" />
-              <div class="flex flex-row justify-between">
-                <div class="section__subtitle mr-4"> 16:30 </div>
-                <div class="section__subtitle ml-4 place-items-end">
-                  <div> Начало банкета </div>
+              <div class="flex flex-col md:w-1/12">
+                <div class="section__header place-items-center mt-5 mb-5">
+                  <img class="h-full w-10 object-cover md:h-full" src="./public/assets/black-heart-empty.png" />
                 </div>
-              </div>
-              <hr class="accent mt-3 mb-3" />
-              <div class="flex flex-row justify-between">
-                <div class="section__subtitle mr-4"> 18:00 </div>
-                <div class="section__subtitle ml-4 place-items-end">
-                  <div> Первый танец </div>
-                </div>
-              </div>
-              <hr class="accent mt-3 mb-3" />
-              <div class="flex flex-row justify-between">
-                <div class="section__subtitle mr-4"> 21:00 </div>
-                <div class="section__subtitle ml-4 place-items-end">
-                  <div> Торт </div>
-                </div>
-              </div>
-              <hr class="accent mt-3 mb-3" />
-              <div class="flex flex-row justify-between">
-                <div class="section__subtitle mr-4"> 23:00 </div>
-                <div class="section__subtitle ml-4 place-items-end">
-                  <div> Конец торжества </div>
-                </div>
-              </div>
-            </div>
-            <div class="flex flex-col md:w-1/12">
-              <div class="section__header place-items-center mt-5 mb-5">
-                <img class="h-full w-10 object-cover md:h-full" src="./public/assets/black-heart-empty.png" />
               </div>
             </div>
           </div>
         </div>
-      </div>
-    </section>
-    <section class="section section--type-second">
-      <div class="section__header mt-5 ">
-        Подарки
-      </div>
-      <div class="section__subtitle mb-5">
-        Главное для нас - ваше внимание, а ваши пожелания в конверте будут лучшим подарком, который поможет исполнить
-        наши мечты
-        Мы очень любим совместный досуг, особенно, если он помогает саморазвитию. Если вы планировали подарить букет, то
-        в качестве альтернативы мы были бы очень рады сертификату на мастер-класс на ваш выбор.
-      </div>
-      <div class="flex flex-col md:w-1/12">
-        <div class="section__header place-items-center flex flex-row mt-5 mb-5">
-          <img class="h-full w-15 object-cover place-items-center md:h-full" src="./public/assets/white-heart.png" />
+      </section>
+      <section class="section section--type-second">
+        <div class="section__header mt-5 ">
+          Подарки
         </div>
-      </div>
-    </section>
-    <section class="section section--type-first pl-5 pr-5">
-      <div
-        class=" section section--type-first section--collage mx-auto max-w-md overflow-hidden md:max-w-7xl pt-0 pb-0 p-0">
-        <div class="md:flex">
-          <div class="flex flex-col place-items-center justify-between md:w-7/12 mt-4">
-            <div class="flex flex-col md:w-10/12">
-              <div class="section__header mb-5">
-                Контакты
-              </div>
-              <div class="section__subtitle place-items-center">
-                <div> Для удобства коммуникации мы решили создать для всех гостей <a class="accent-text" href="#">общий чат</a>, в котором будут
-                  публиковаться обновления пригласительного. Вы можете задавать вопросы в этом чате, а также загружать
-                  туда фотографии, сделанные до или во время свадьбы. 
+        <div class="section__subtitle mb-5">
+          Главное для нас - ваше внимание, а ваши пожелания в конверте будут лучшим подарком, который поможет исполнить
+          наши мечты
+          Мы очень любим совместный досуг, особенно, если он помогает саморазвитию. Если вы планировали подарить букет,
+          то
+          в качестве альтернативы мы были бы очень рады сертификату на мастер-класс на ваш выбор.
+        </div>
+        <div class="flex flex-col md:w-1/12">
+          <div class="section__header place-items-center flex flex-row mt-5 mb-5">
+            <img class="h-full w-15 object-cover place-items-center md:h-full" src="./public/assets/white-heart.png" />
+          </div>
+        </div>
+      </section>
+      <section class="section section--type-first pl-5 pr-5">
+        <div
+             class=" section section--type-first section--collage mx-auto max-w-md overflow-hidden md:max-w-7xl pt-0 pb-0 p-0">
+          <div class="md:flex">
+            <div class="flex flex-col place-items-center justify-between md:w-7/12 mt-4">
+              <div class="flex flex-col md:w-10/12">
+                <div class="section__header mb-5">
+                  Контакты
+                </div>
+                <div class="section__subtitle place-items-center">
+                  <div> Для удобства коммуникации мы решили создать для всех гостей <a class="accent-text"
+                       href="#">общий чат</a>, в котором будут
+                    публиковаться обновления пригласительного. Вы можете задавать вопросы в этом чате, а также загружать
+                    туда фотографии, сделанные до или во время свадьбы.
+                  </div>
                 </div>
               </div>
-            </div>
-            <div class="flex flex-col md:w-1/12">
-              <div class="section__header place-items-center mt-5 mb-5">
-                <img class="h-full w-10 object-cover md:h-full" src="./public/assets/black-heart-empty.png" />
+              <div class="flex flex-col md:w-1/12">
+                <div class="section__header place-items-center mt-5 mb-5">
+                  <img class="h-full w-10 object-cover md:h-full" src="./public/assets/black-heart-empty.png" />
+                </div>
               </div>
-            </div>
-            {{!-- Если у вас возникнут вопросы, можете обратиться к нашему организатору – Валентине +7 950 800 9586 --}}
+              {{!-- Если у вас возникнут вопросы, можете обратиться к нашему организатору – Валентине +7 950 800 9586 --}}
               <div class="section__subtitle ml-4 place-items-center">
-                <div> 
+                <div>
                   Если у вас возникнут вопросы, можете обратиться к нашему организатору – Валентине
                 </div>
               </div>
               <div class="flex flex-col md:w-1/12">
-              <div class="section__header place-items-center mt-5 mb-5">
-                <img class="h-full w-10 object-cover md:h-full" src="./public/assets/black-heart-empty.png" />
+                <div class="section__header place-items-center mt-5 mb-5">
+                  <img class="h-full w-10 object-cover md:h-full" src="./public/assets/black-heart-empty.png" />
+                </div>
               </div>
-            </div>
               <div class="section__subtitle ml-4 place-items-center">
                 <div>+7 950 800 9586
                 </div>
               </div>
 
-          </div>
-          <div class="md:w-5/12"> <img class="h-full w-30 object-cover md:h-full" src="./public/assets/photo4.png" />
+            </div>
+            <div class="md:w-5/12"> <img class="h-full w-30 object-cover md:h-full" src="./public/assets/photo4.png" />
+            </div>
           </div>
         </div>
-      </div>
-    </section>
-    <section class="section section--type-first">
-      <div class="section__header mt-5 accent-text">
-        Ваши Мария и Андрей
-      </div>
-      <div class="flex flex-col md:w-1/12">
-        <div class="section__header place-items-center flex flex-row mt-5 mb-5">
-          <img class="h-full w-15 object-cover place-items-center md:h-full" src="./public/assets/red-heart.png" />
+      </section>
+      <section class="section section--type-first">
+        <div class="section__header mt-5 accent-text">
+          Ваши Мария и Андрей
         </div>
-      </div>
-    </section>
+        <div class="flex flex-col md:w-1/12">
+          <div class="section__header place-items-center flex flex-row mt-5 mb-5">
+            <img class="h-full w-15 object-cover place-items-center md:h-full" src="./public/assets/red-heart.png" />
+          </div>
+        </div>
+      </section>
+    </div>
   </main>
 </body>
 
