@@ -1,28 +1,67 @@
 /* ------- Для форм  */
 
-.button {
-    background: var(--main-theme-color);
-    border-radius: 40px;
-    font-size: 4vw;
-    color: black;
 
-    width: 70%;
-    height: 3.5rem;
-    padding-left: 2rem;
-    padding-right: 2rem;
+form {
+    @apply flex flex-col items-center;
 
-    align-items: center;
-    border: none;
-}
+    .form-body {
+        @apply flex flex-col;
 
-.button:hover {
-    box-shadow: rgba(45, 35, 66, 0.4) 0 4px 8px, rgba(45, 35, 66, 0.3) 0 7px 13px -3px;
-    transform: translateY(-2px);
-}
+        background-color: var(--light-theme-color);
 
-.button:active {
-    box-shadow: rgba(45, 35, 66, 0.3) 0 7px 13px -3px inset;
-    transform: translateY(2px);
+        padding-left: 0.8rem;
+        padding-right: 1.4rem;
+        padding-top: 1.2rem;
+        padding-bottom: 1.7rem;
+
+        border-radius: 5px;
+
+        .form-body__field {
+            @apply flex flex-col;
+
+            font-size: 1.875vw;
+            line-height: 10px;
+
+            .form-body__label {
+                color: black;
+                margin-bottom: 8px;
+            }
+
+            .form-body__input--text {
+                background: none;
+                border-bottom-width: 1px;
+                border-color: black;
+                margin-left: 0.7rem;
+
+                &:focus-visible {
+                    /* todo */
+                }
+            }
+        }
+    }
+
+    .button {
+        background: var(--main-theme-color);
+        border-radius: 40px;
+        font-size: 4vw;
+        color: black;
+
+        width: 70%;
+        height: 3.5rem;
+        padding-left: 2rem;
+        padding-right: 2rem;
+
+        align-items: center;
+        border: none;
+    }
+
+    .button:hover {
+        box-shadow: rgba(45, 35, 66, 0.4) 0 4px 8px, rgba(45, 35, 66, 0.3) 0 7px 13px -3px;
+    }
+
+    .button:active {
+        box-shadow: rgba(45, 35, 66, 0.3) 0 7px 13px -3px inset;
+    }
 }
 
 .control {

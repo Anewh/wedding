@@ -51,7 +51,7 @@ body {
   }
 }
 
-main{
+main {
   @apply pergament;
 }
 
@@ -110,13 +110,8 @@ main{
 
   /* width: 60%; */
 
-  padding-inline: 5vw;
-  padding-top: 2vh;
-  padding-bottom: 3vh;
-
   .section__header {
     @apply text-center;
-
 
     font-family: 'Denistina', 'Cormorant Infant', 'Arial', sans-serif;
     font-weight: 400;
@@ -144,6 +139,7 @@ main{
     padding-left: 1.5rem;
     padding-right: 1.5rem;
     font-size: 3.15vw;
+
     @media (max-width: 768px) {
       font-size: 8.3vw;
     }
@@ -167,11 +163,12 @@ main{
     @apply text-center;
     border-radius: 50px;
     background: linear-gradient(145deg, #bcacab, #9e9190);
-    box-shadow:  20px 20px 60px #968988,
-                 -20px -20px 60px #cab9b8;
-                 @media (min-width: 1000px) {
-                  font-size: 1.2vw;
-                }
+    box-shadow: 20px 20px 60px #968988,
+      -20px -20px 60px #cab9b8;
+
+    @media (min-width: 1000px) {
+      font-size: 1.2vw;
+    }
   }
 
   .button-big {
@@ -180,6 +177,7 @@ main{
     height: 2rem;
     padding-left: 2rem;
     padding-right: 2rem;
+
     @media (min-width: 1000px) {
       font-size: 1.2vw;
     }
@@ -189,16 +187,17 @@ main{
     @apply text-center;
     border-radius: 40px;
     background: #820201;
-    box-shadow:  20px 20px 58px #5b0101,
-                 -20px -20px 58px #a90301;
-                 @media (min-width: 1000px) {
-                  font-size: 1.2vw;
-                }
+    box-shadow: 20px 20px 58px #5b0101,
+      -20px -20px 58px #a90301;
+
+    @media (min-width: 1000px) {
+      font-size: 1.2vw;
+    }
   }
 
   .round {
     border-radius: 200px;
-    
+
     width: 70%;
     height: 70%;
   }
@@ -246,6 +245,14 @@ main{
   }
 }
 
+.button:hover {
+  transform: translateY(-2px);
+}
+
+.button:active {
+  transform: translateY(2px);
+}
+
 .collage__wrapper {
   max-width: 60%;
 }
@@ -286,46 +293,6 @@ main{
         color: black;
       }
     } */
-  }
-}
-
-form {
-  @apply flex flex-col items-center;
-
-  .form-body {
-    @apply flex flex-col;
-
-    background-color: var(--light-theme-color);
-
-    padding-left: 0.8rem;
-    padding-right: 1.4rem;
-    padding-top: 1.2rem;
-    padding-bottom: 1.7rem;
-
-    border-radius: 5px;
-
-    .form-body__field {
-      @apply flex flex-col;
-
-      font-size: 1.875vw;
-      line-height: 10px;
-
-      .form-body__label {
-        color: black;
-        margin-bottom: 8px;
-      }
-
-      .form-body__input--text {
-        background: none;
-        border-bottom-width: 1px;
-        border-color: black;
-        margin-left: 0.7rem;
-
-        &:focus-visible {
-          /* todo */
-        }
-      }
-    }
   }
 }
 
