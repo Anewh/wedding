@@ -131,7 +131,7 @@ main{
 
   .section__subtitle {
     @apply text-center;
-
+    font-family: 'Montserrat';
     padding-left: 1.5rem;
     padding-right: 1.5rem;
   }
