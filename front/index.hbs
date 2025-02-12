@@ -10,7 +10,7 @@
   <script type="module" src="./public/scripts/stylesheets.js"></script>
 
   <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css"
-        integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
+    integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
 </head>
 
 <body>
@@ -105,14 +105,14 @@
       </div>
     </div>
   </div>
-  <main class="flex flex-col items-center mx-auto justify-center mt-5 mb-64 sm:w-full md:w-4/6">
+  <main class="flex flex-col items-center mx-auto justify-center mb-64 sm:w-full md:w-4/6">
     <div class="section section--type-second section--collage overflow-hidden pt-0 pb-0 p-0">
       <div class="md:flex">
-        <div class="md:w-7/12"> <img class="h-full w-30 object-cover md:h-full" src="./public/assets/collage.png" />
+        <div class="md:w-7/12"> <img class="h-full w-30 object-cover md:h-full" src="./public/assets/collage.jpg" />
         </div>
         <div class="flex flex-col place-items-center justify-center md:w-5/12 mt-4">
           <div class="section__header flex flex-row items-center"> Мария & Андрей </div>
-          <div class="section__header flex flex-row items-center"> 16 августа 2025 </div>
+          <div class="section__subtitle-cormorant flex flex-row items-center data-header-size"> 16 августа 2025 </div>
         </div>
       </div>
     </div>
@@ -138,7 +138,7 @@
       <div class="flex flex-col md:flex-row justify-between">
         <div class="flex flex-col">
           <div class="timer__header section__header mx-3 mb-3 mt-3">
-            До нашего торжества осталось:
+            <div class="section__subtitle-cormorant flex flex-row items-center">До нашего торжества осталось:</div>
           </div>
           <div class="timer__wrapper mx-auto mb-6">
             <div class="timer">
@@ -167,16 +167,14 @@
       </div>
     </section>
     <section class="section section--type-first section--delimiter"></section>
-    <div
-         class=" section section--type-second section--collage mx-auto max-w-md overflow-hidden md:max-w-7xl pt-0 pb-0 p-0">
-      <div class=" section__header md:flex">
+    <div class=" section section--type-second section--collage pt-0 pb-0 p-0">
+      <div class=" section__header md:flex pt-2">
         Место проведения: Openhouse
       </div>
     </div>
-    <div
-         class=" section section--type-second section--collage mx-auto max-w-md overflow-hidden md:max-w-7xl pt-0 pb-5 md:pb-0">
+    <div class=" section section--type-second section--collage pt-0 pb-5 md:pb-0">
       <div class="md:flex pl-5 pr-5 pb-5 md:pb-0">
-        <div class="md:w-6/12">
+        <div class="md:w-6/12 mb-5 md:mb-0">
           <img class="h-full w-30 object-cover md:h-full" src="./public/assets/place.webp" />
         </div>
         <div class="flex flex-col place-items-center justify-center md:w-6/12">
@@ -231,20 +229,21 @@
 
 
       <div class="flex flex-col place-items-center justify-between md:w-7/12 mt-4">
-        <div class="flex flex-col md:w-1/12">
-          <div class="section__header place-items-center mb-5">
-            <img class="h-full w-10 object-cover md:h-full" src="./public/assets/black-heart-empty.png" />
+        <div class="flex flex-col md:w-1/12 place-items-center ">
+          <div class="h-10 place-items-center mb-5 md:h-10">
+            <img src="./public/assets/black-heart-empty.png" class="h-full object-cover md:h-full">
           </div>
         </div>
         <div class="flex flex-col md:w-10/12">
           <div class="section__subtitle mb-5">
             Для джентльменов уместным будет классический костюм.
+            <br /><br />
             Для дам просьба воздержаться от белого цвета в образе.
           </div>
         </div>
-        <div class="flex flex-col md:w-1/12">
-          <div class="section__header place-items-center mt-5 mb-5">
-            <img class="h-full w-10 object-cover md:h-full" src="./public/assets/black-heart-empty.png" />
+        <div class="flex flex-col md:w-1/12 place-items-center ">
+          <div class="h-10 place-items-center mb-5 md:h-10">
+            <img src="./public/assets/black-heart-empty.png" class="h-full object-cover md:h-full">
           </div>
         </div>
       </div>
@@ -267,20 +266,18 @@
         </form>
       {{/unless}}
     </section>
-
-    <div id="after-invitation" {{#unless user.invited}}class="hidden" {{/unless}}>
-      <section class="section section--type-first pl-5 pr-5">
-        <div
-             class=" section section--type-first section--collage mx-auto max-w-md overflow-hidden md:max-w-7xl pt-0 pb-0 p-0">
-          <div class="md:flex">
-            <div class="md:w-5/12"> <img class="h-full w-30 object-cover md:h-full" src="./public/assets/duet.png" />
-            </div>
-            <div class="flex flex-col place-items-center justify-between md:w-7/12 mt-4">
-              <div class="flex flex-col md:w-1/12">
-                <div class="section__header place-items-center mb-5">
-                  <img class="h-full w-10 object-cover md:h-full" src="./public/assets/black-heart-empty.png" />
-                </div>
+     <div id="after-invitation" {{#unless user.invited}}class="hidden" {{/unless}}>
+    <section class="section section--type-first pl-5 pr-5">
+      <div class=" section section--type-first section--collage pt-0 pb-0 p-0">
+        <div class="md:flex">
+          <div class="md:w-5/12"> <img class="h-full w-30 object-cover md:h-full" src="./public/assets/duet.jpg" />
+          </div>
+          <div class="flex flex-col place-items-center justify-between md:w-7/12 mt-4">
+            <div class="flex flex-col md:w-1/12 place-items-center ">
+              <div class="h-10 place-items-center mb-5 md:h-10">
+                <img src="./public/assets/black-heart-empty.png" class="h-full object-cover md:h-full">
               </div>
+            </div>
               <div class="flex flex-col md:w-10/12">
                 <div class="section__header mb-5">
                   Примерная программа дня
@@ -327,10 +324,10 @@
                   </div>
                 </div>
               </div>
-              <div class="flex flex-col md:w-1/12">
-                <div class="section__header place-items-center mt-5 mb-5">
-                  <img class="h-full w-10 object-cover md:h-full" src="./public/assets/black-heart-empty.png" />
-                </div>
+            </div>
+            <div class="flex flex-col md:w-1/12 place-items-center ">
+              <div class="h-10 place-items-center mb-5 md:h-10">
+                <img src="./public/assets/black-heart-empty.png" class="h-full object-cover md:h-full">
               </div>
             </div>
           </div>
@@ -361,61 +358,107 @@
             <img class="w-14 object-cover place-items-center md:h-full" src="./public/assets/white-heart.png" />
           </div>
         </div>
-      </section>
-      <section class="section section--type-first pl-5 pr-5">
-        <div
-             class=" section section--type-first section--collage mx-auto max-w-md overflow-hidden md:max-w-7xl pt-0 pb-0 p-0">
-          <div class="md:flex">
-            <div class="flex flex-col place-items-center justify-between md:w-7/12 mt-4">
-              <div class="flex flex-col md:w-10/12">
-                <div class="section__header mb-5">
-                  Контакты
+    </section>
+    <section class="section section--type-first pl-5 pr-5">
+      <div class=" section section--type-first section--collage pt-0 pb-0 p-0">
+        <div class="md:flex">
+          <div class="flex flex-col place-items-center justify-between md:w-7/12 mt-4">
+            <div class="flex flex-col md:w-1/12 place-items-center ">
+              <div class="h-10 place-items-center mb-5 md:h-10">
+                <img src="./public/assets/black-heart-empty.png" class="h-full object-cover md:h-full">
+              </div>
+            </div>
+            <div class="flex flex-col md:w-10/12">
+              <div class="section__header mb-5">
+                Контакты
+              </div>
+              <div class="section__subtitle place-items-center">
+                <div> Для удобства коммуникации мы решили создать для всех гостей <a class="accent-text" href="#">общий
+                    чат</a>, в котором будут
+                  публиковаться обновления пригласительного. Вы можете задавать вопросы в этом чате, а также загружать
+                  туда фотографии, сделанные до или во время свадьбы.
                 </div>
-                <div class="section__subtitle place-items-center">
-                  <div> Для удобства коммуникации мы решили создать для всех гостей <a class="accent-text"
-                       href="#">общий чат</a>, в котором будут
-                    публиковаться обновления пригласительного. Вы можете задавать вопросы в этом чате, а также загружать
-                    туда фотографии, сделанные до или во время свадьбы.
-                  </div>
+                <div class="flex flex-row justify-between place-items-center mt-4 mb-8">
+                  <button class="button button-neo-white button-big md:w-2/6 mr-3" href="#">Общий чат</button>
+                  <button class="button button-neo-white button-big md:w-2/6" href="#">Галлерея</button>
                 </div>
               </div>
-              <div class="flex flex-col md:w-1/12">
-                <div class="section__header place-items-center mt-5 mb-5">
-                  <img class="h-full w-10 object-cover md:h-full" src="./public/assets/black-heart-empty.png" />
-                </div>
+            </div>
+            <div class="flex flex-col md:w-1/12 place-items-center ">
+              <div class="h-10 place-items-center mb-5 md:h-10">
+                <img src="./public/assets/black-heart-empty.png" class="h-full object-cover md:h-full">
               </div>
-              {{!-- Если у вас возникнут вопросы, можете обратиться к нашему организатору – Валентине +7 950 800 9586 --}}
-              <div class="section__subtitle ml-4 place-items-center">
-                <div>
-                  Если у вас возникнут вопросы, можете обратиться к нашему организатору – Валентине
-                </div>
-              </div>
-              <div class="flex flex-col md:w-1/12">
-                <div class="section__header place-items-center mt-5 mb-5">
-                  <img class="h-full w-10 object-cover md:h-full" src="./public/assets/black-heart-empty.png" />
-                </div>
-              </div>
-              <div class="section__subtitle ml-4 place-items-center">
-                <div>+7 950 800 9586
-                </div>
-              </div>
+            </div>
+          </div>
+          <div class="md:w-7/12"> <img class="h-full w-30 object-cover md:h-full" src="./public/assets/photo4.jpg" />
+          </div>
+        </div>
+      </div>
+    </section>
 
-            </div>
-            <div class="md:w-7/12"> <img class="h-full w-30 object-cover md:h-full" src="./public/assets/photo4.png" />
-            </div>
+    <section class="section section--type-first">
+      <div class="section__subtitle place-items-center mt-3">
+        <div>
+          Если у вас возникнут вопросы, можете обратиться к нашему организатору – Валентине
+        </div>
+      </div>
+
+      <div class="flex flex-col md:w-4/12 mt-3 mb-3 justify-center place-items-center w-64">
+        <img class="round h-full round md:h-full" src="./public/assets/org.jpg" />
+      </div>
+      <div class="flex flex-col md:w-9/12">
+        <div class="flex flex-row justify-between">
+          <div class="section__subtitle mr-4 flex flex-col justify-center place-item-center">
+            <div> Группа ВКонтакте </div>
+          </div>
+          <div class="section__subtitle ml-4 place-items-end">
+            <button class="round button-contact" href="https://vk.com/club210095480">
+              <img class="round button-contact md:h-full" src="./public/assets/vk.jpg" />
+            </button>
           </div>
         </div>
-      </section>
-      <section class="section section--type-first">
-        <div class="section__header mt-5 accent-text">
-          Ваши Мария и Андрей
-        </div>
-        <div class="flex flex-col md:w-1/12">
-          <div class="section__header place-items-center flex flex-row mt-5 mb-5" style="max-height:10% max-width:auto">
-            <img class="w-14 object-cover place-items-center md:h-full" src="./public/assets/red-heart.png" />
+        <hr class="accent mt-1 mb-1" />
+        <div class="flex flex-row justify-between">
+
+          <div class="section__subtitle mr-4 flex flex-col justify-center place-item-center">
+            <div> Страница ВКонтакте </div>
+          </div>
+          <div class="section__subtitle ml-4 place-items-end">
+            <button class="round button-contact" href="https://vk.com/club210095480">
+              <img class="round button-contact md:h-full" src="./public/assets/vk.jpg" />
+            </button>
           </div>
         </div>
-      </section>
+        <hr class="accent mt-1 mb-1" />
+        <div class="flex flex-row justify-between">
+          <div class="section__subtitle mr-4 flex flex-col justify-center place-item-center">
+            <div> Телеграмм </div>
+          </div>
+          <div class="section__subtitle ml-4 place-items-end">
+            <button class="round button-contact" href="https://vk.com/club210095480">
+              <img class="round button-contact md:h-full" src="./public/assets/tg.png" />
+            </button>
+          </div>
+        </div>
+        <hr class="accent mt-1 mb-1" />
+      </div>
+
+      <div class="section__subtitle mt-1 place-items-center">
+        <div>+7-950-800-9586
+        </div>
+      </div>
+
+    </section>
+    <section class="section section--type-first">
+      <div class="section__header mt-5 accent-text">
+        Ваши Мария и Андрей
+      </div>
+      <div class="flex flex-col md:w-1/12">
+        <div class="section__header place-items-center flex flex-row mt-5 mb-5" style="max-height:10% max-width:auto">
+          <img class="w-14 object-cover place-items-center md:h-full" src="./public/assets/red-heart.png" />
+        </div>
+    </section>
+    </div>
     </div>
   </main>
 </body>

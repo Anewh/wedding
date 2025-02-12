@@ -3,10 +3,10 @@
 .button {
     background: var(--main-theme-color);
     border-radius: 40px;
-    font-size: 2vw;
+    font-size: 4vw;
     color: black;
 
-    width: fit-content;
+    width: 70%;
     height: 3.5rem;
     padding-left: 2rem;
     padding-right: 2rem;
