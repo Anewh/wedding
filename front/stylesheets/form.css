@@ -1,0 +1,158 @@
+/* ------- Для форм  */
+
+.button {
+    background: var(--main-theme-color);
+    border-radius: 40px;
+    font-size: 2vw;
+    color: black;
+
+    width: fit-content;
+    height: 3.5rem;
+    padding-left: 2rem;
+    padding-right: 2rem;
+
+    align-items: center;
+    border: none;
+}
+
+.button:hover {
+    box-shadow: rgba(45, 35, 66, 0.4) 0 4px 8px, rgba(45, 35, 66, 0.3) 0 7px 13px -3px;
+    transform: translateY(-2px);
+}
+
+.button:active {
+    box-shadow: rgba(45, 35, 66, 0.3) 0 7px 13px -3px inset;
+    transform: translateY(2px);
+}
+
+.control {
+    font-family: arial;
+    display: block;
+    position: relative;
+    padding-left: 30px;
+    margin-bottom: 5px;
+    padding-top: 3px;
+    cursor: pointer;
+    font-size: 4vw;
+}
+
+.control input {
+    position: absolute;
+    z-index: -1;
+    opacity: 0;
+}
+
+.control_indicator {
+    position: absolute;
+    top: 3px;
+    left: 0;
+    height: 20px;
+    width: 20px;
+    background: var(--convert-theme-ground);
+    border: 1px solid #afacac;
+    border-radius: 0px;
+    opacity: 0.75;
+}
+
+.control:hover input~.control_indicator {
+    opacity: 1;
+}
+
+.control input:checked~.control_indicator {
+    opacity: 1;
+}
+
+.control:hover input:not([disabled]):checked~.control_indicator,
+.control input:checked:focus~.control_indicator {
+    background: var(--convert-theme-ground);
+}
+
+.control input:disabled~.control_indicator {
+    background: #e6e6e6;
+    opacity: 14;
+    pointer-events: none;
+}
+
+.control_indicator:after {
+    box-sizing: unset;
+    content: '';
+    position: absolute;
+    display: none;
+}
+
+.control input:checked~.control_indicator:after {
+    display: block;
+}
+
+.control-checkbox .control_indicator:after {
+    left: 6px;
+    top: 0px;
+    width: 4px;
+    height: 12px;
+    border: solid #afacac;
+    border-width: 0 3px 3px 0;
+    transform: rotate(45deg);
+}
+
+.control-checkbox input:disabled~.control_indicator:after {
+    border-color: #7b7b7b;
+}
+
+.control-checkbox .control_indicator::before {
+    content: '';
+    display: block;
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 2.598rem;
+    height: 3.286rem;
+    margin-left: -1.763rem;
+    margin-top: -1.469rem;
+    background: #afacac;
+    border-radius: 3rem;
+    opacity: 0.5;
+    z-index: 99999;
+    transform: scale(0);
+}
+
+@keyframes s-ripple {
+    0% {
+        transform: scale(0);
+    }
+
+    20% {
+        transform: scale(1);
+    }
+
+    100% {
+        opacity: 0;
+        transform: scale(1);
+    }
+}
+
+@keyframes s-ripple-dup {
+    0% {
+        transform: scale(0);
+    }
+
+    30% {
+        transform: scale(1);
+    }
+
+    60% {
+        transform: scale(1);
+    }
+
+    100% {
+        opacity: 0;
+        transform: scale(1);
+    }
+}
+
+.control-checkbox input+.control_indicator::before {
+    animation: s-ripple 250ms ease-out;
+}
+
+.control-checkbox input:checked+.control_indicator::before {
+    animation-name: s-ripple-dup;
+}

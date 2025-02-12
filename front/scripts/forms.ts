@@ -12,7 +12,7 @@ const ROUTES = {
 const client = new (class {
     constructor() { }
 
-    async acceptInvite(sex, username): Promise<AxiosResponse> {
+    async acceptInvite(sex: string, username: string): Promise<AxiosResponse> {
         return await axios.post(ROUTES.forms.POST.acceptInvite, {
             sex,
             username
@@ -20,15 +20,15 @@ const client = new (class {
     }
 });
 
-const acceptInviteForm = document.getElementById('accept-invite');
+const acceptInviteForm = document.getElementById('accept-invite-form');
 
 acceptInviteForm?.addEventListener('submit', (e) => {
     e.preventDefault();
 
     const query = new URLSearchParams(window.location.search);
 
-    const sex = query.get('s');
-    const username = query.get('n');
+    const sex = query.get('s') as string;
+    const username = query.get('n') as string;
     
     client.acceptInvite(sex, username)
         .then(response => {

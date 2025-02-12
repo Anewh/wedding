@@ -12,6 +12,7 @@
 @import "./hearts.css";
 @import "./timer.css";
 @import "./dresscode.css";
+@import "./form.css";
 
 :root {
   --main-theme-color: #fcf8ee;
@@ -98,13 +99,6 @@ main{
   font-weight: 400;
 }
 
-/* .test-1 {
-  border-radius: 10px;
-  border: none;
-  background-color: #1e222b;
-  color: white;
-} */
-
 .section {
   @apply flex flex-col items-center mx-auto content-between w-full;
   /* @apply neomorfic; */
@@ -156,6 +150,10 @@ main{
     padding-top: 0%;
     padding-bottom: 0%
   } */
+
+  &.section--delimiter {
+    min-height: 2rem;
+  }
 
   &.section--collage {
     @apply flex flex-row justify-between;
@@ -267,13 +265,6 @@ form {
   }
 }
 
-.welcome {
-  @apply flex w-full h-full overflow-hidden;
-  /* TODO Временно, пока не доработан конверт */
-  @apply hidden;
-}
-
-
 .accent {
   background-color: var(--section-color-second);
   height: 2px;
@@ -287,150 +278,4 @@ form {
   padding-inline: 0%;
   padding-top: 0%;
   padding-bottom: 0%
-}
-
-/* ------- Анкета  */
-
-.button {
-  background: var(--accent-color);
-  border-radius: 40px;
-  font-size: 2vw;
-  color: white;
-
-  width: fit-content;
-  height: 3.5rem;
-  padding-left: 2rem;
-  padding-right: 2rem;
-}
-
-.control {
-  font-family: arial;
-  display: block;
-  position: relative;
-  padding-left: 30px;
-  margin-bottom: 5px;
-  padding-top: 3px;
-  cursor: pointer;
-  font-size: 4vw;
-}
-
-.control input {
-  position: absolute;
-  z-index: -1;
-  opacity: 0;
-}
-
-.control_indicator {
-  position: absolute;
-  top: 3px;
-  left: 0;
-  height: 20px;
-  width: 20px;
-  background: var(--convert-theme-ground);
-  border: 1px solid #afacac;
-  border-radius: 0px;
-  opacity: 0.75;
-}
-
-.control:hover input~.control_indicator {
-  opacity: 1;
-}
-
-.control input:checked~.control_indicator {
-  opacity: 1;
-}
-
-.control:hover input:not([disabled]):checked~.control_indicator,
-.control input:checked:focus~.control_indicator {
-  background: var(--convert-theme-ground);
-}
-
-.control input:disabled~.control_indicator {
-  background: #e6e6e6;
-  opacity: 14;
-  pointer-events: none;
-}
-
-.control_indicator:after {
-  box-sizing: unset;
-  content: '';
-  position: absolute;
-  display: none;
-}
-
-.control input:checked~.control_indicator:after {
-  display: block;
-}
-
-.control-checkbox .control_indicator:after {
-  left: 6px;
-  top: 0px;
-  width: 4px;
-  height: 12px;
-  border: solid #afacac;
-  border-width: 0 3px 3px 0;
-  transform: rotate(45deg);
-}
-
-.control-checkbox input:disabled~.control_indicator:after {
-  border-color: #7b7b7b;
-}
-
-.control-checkbox .control_indicator::before {
-  content: '';
-  display: block;
-  position: absolute;
-  left: 0;
-  top: 0;
-  width: 2.598rem;
-  height: 3.286rem;
-  margin-left: -1.763rem;
-  margin-top: -1.469rem;
-  background: #afacac;
-  border-radius: 3rem;
-  opacity: 0.5;
-  z-index: 99999;
-  transform: scale(0);
-}
-
-@keyframes s-ripple {
-  0% {
-    transform: scale(0);
-  }
-
-  20% {
-    transform: scale(1);
-  }
-
-  100% {
-    opacity: 0;
-    transform: scale(1);
-  }
-}
-
-@keyframes s-ripple-dup {
-  0% {
-    transform: scale(0);
-  }
-
-  30% {
-    transform: scale(1);
-  }
-
-  60% {
-    transform: scale(1);
-  }
-
-  100% {
-    opacity: 0;
-    transform: scale(1);
-  }
-}
-
-.control-checkbox input+.control_indicator::before {
-  animation: s-ripple 250ms ease-out;
-}
-
-.control-checkbox input:checked+.control_indicator::before {
-  animation-name: s-ripple-dup;
 }

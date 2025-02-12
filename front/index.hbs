@@ -166,14 +166,15 @@
         </div>
       </div>
     </section>
-
+    <section class="section section--type-first section--delimiter"></section>
     <div
          class=" section section--type-second section--collage mx-auto max-w-md overflow-hidden md:max-w-7xl pt-0 pb-0 p-0">
       <div class=" section__header md:flex">
         Место проведения: Openhouse
       </div>
     </div>
-    <div class=" section section--type-second section--collage mx-auto max-w-md overflow-hidden md:max-w-7xl pt-0 pb-5 md:pb-0">
+    <div
+         class=" section section--type-second section--collage mx-auto max-w-md overflow-hidden md:max-w-7xl pt-0 pb-5 md:pb-0">
       <div class="md:flex pl-5 pr-5 pb-5 md:pb-0">
         <div class="md:w-6/12">
           <img class="h-full w-30 object-cover md:h-full" src="./public/assets/place.webp" />
@@ -214,7 +215,7 @@
           <div class="rounded-full h-10 w-10" style="background-color:  rgb(126, 84, 65) ;"></div>
         </div> --}}
         <div class="h-32 grid grid-cols-9 m-">
-          
+
           <div class="w-12"></div>
           <div class="w-12" style="background-color:rgb(11, 10, 10);"></div>
           <div class="w-12" style="background-color: rgb(107, 9, 8);"></div>
@@ -256,22 +257,16 @@
       </div>
     </section>
 
-    {{#unless user.invited}}
-      <section id="accept-invite-section" class="section section--type-second section--accept-invite container flex justify-center w-full px-40 pt-10 mx-auto">
-        <form id="accept-invite" class="mb-12" method="post">
+    <section
+             class="section section--type-second section--delimiter section--accept-invite container flex justify-center w-full px-40 pt-10 mx-auto">
+      {{#unless user.invited}}
+        <form id="accept-invite-form" class="mb-12" method="post">
           <p class="section__header mt-3 mb-6">Вы придете? Мы будем.</p>
-
-          {{!-- <div class="form-body form-body--accept-invite mb-6">
-          <div class="form-body__field pb-6">
-            <label class="form-body__label" for="phone">Укажите </label>
-            <input class="form-body__input--text" type="text" name="phone" id="phone">
-          </div>
-        </div> --}}
 
           <button class="button">Я тоже буду!</button>
         </form>
-      </section>
-    {{/unless}}
+      {{/unless}}
+    </section>
 
     <div id="after-invitation" {{#unless user.invited}}class="hidden" {{/unless}}>
       <section class="section section--type-first pl-5 pr-5">
@@ -341,6 +336,15 @@
           </div>
         </div>
       </section>
+      <div id="section--preference__wrapper">
+        <section class="section section--type-second section--preferences">
+          <form id="preferences-form" method="post">
+          </form>
+        </section>
+        <section class="section section--type-first section--delimiter">
+
+        </section>
+      </div>
       <section class="section section--type-second">
         <div class="section__header mt-5 ">
           Подарки

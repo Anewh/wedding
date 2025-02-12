@@ -4,7 +4,7 @@ export function changeAfterInvitation() {
         afterInvitation.style.display = 'block';
     }
 
-    const invitationSection = document.getElementById('accept-invite-section');
+    const invitationSection = document.getElementById('accept-invite-form');
     if (invitationSection) {
         invitationSection.style.display = 'none';
     }
