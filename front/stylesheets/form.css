@@ -6,45 +6,11 @@ form {
 
     .form-body {
         @apply flex flex-col;
-
-        background-color: var(--light-theme-color);
-
-        padding-left: 0.8rem;
-        padding-right: 1.4rem;
-        padding-top: 1.2rem;
-        padding-bottom: 1.7rem;
-
-        border-radius: 5px;
-
-        .form-body__field {
-            @apply flex flex-col;
-
-            font-size: 1.875vw;
-            line-height: 10px;
-
-            .form-body__label {
-                color: black;
-                margin-bottom: 8px;
-            }
-
-            .form-body__input--text {
-                background: none;
-                border-bottom-width: 1px;
-                border-color: black;
-                margin-left: 0.7rem;
-
-                &:focus-visible {
-                    /* todo */
-                }
-            }
-        }
     }
 
     .button {
-        background: var(--main-theme-color);
         border-radius: 40px;
-        font-size: 4vw;
-        color: black;
+        font-size: 2.2vw;
 
         width: 70%;
         height: 3.5rem;
@@ -53,6 +19,10 @@ form {
 
         align-items: center;
         border: none;
+
+        @media (max-width: 768px) {
+            font-size: 4.4vw;
+        }
     }
 
     .button:hover {
@@ -62,17 +32,68 @@ form {
     .button:active {
         box-shadow: rgba(45, 35, 66, 0.3) 0 7px 13px -3px inset;
     }
+
+    .section__subtitle-cormorant {
+        font-size: 2.5vw !important;
+    
+        @media (max-width: 768px) {
+          font-size: 7.3vw !important;
+        }
+      }
+}
+
+.section--type-first {
+    form {
+        .button {
+            background: var(--accent-color);
+            color: white;
+        }
+    }
+}
+
+.section--type-second {
+    form {
+        .button {
+            background: var(--main-theme-color);
+            color: black;
+        }
+    }
+}
+
+.form-body__field-group {
+    @apply flex flex-col items-start;
+}
+
+.form-body__label--custom-variant {
+    font-family: 'Cormorant Infant';
+
+    font-size: 1.5vw;
+
+    @media (max-width: 768px) {
+        font-size: 4.5vw;
+    }
+}
+
+.form-body__input--text {
+    background: none;
+    border-bottom-width: 2px;
+    border-color: var(--accent-color);
+}
+
+.form-body__input--text:active-visible {
+    background: none;
+    border-bottom-width: 2px;
+    border-color: var(--accent-color);
 }
 
 .control {
-    font-family: arial;
     display: block;
     position: relative;
-    padding-left: 30px;
-    margin-bottom: 5px;
+    padding-left: 45px;
+    margin-bottom: 11px;
     padding-top: 3px;
     cursor: pointer;
-    font-size: 4vw;
+    /* font-size: 16px; */
 }
 
 .control input {
@@ -85,10 +106,9 @@ form {
     position: absolute;
     top: 3px;
     left: 0;
-    height: 20px;
-    width: 20px;
-    background: var(--convert-theme-ground);
-    border: 1px solid #afacac;
+    height: 30px;
+    width: 30px;
+    border: 2px solid var(--accent-color);
     border-radius: 0px;
     opacity: 0.75;
 }
@@ -101,15 +121,8 @@ form {
     opacity: 1;
 }
 
-.control:hover input:not([disabled]):checked~.control_indicator,
-.control input:checked:focus~.control_indicator {
-    background: var(--convert-theme-ground);
-}
-
-.control input:disabled~.control_indicator {
-    background: #e6e6e6;
-    opacity: 14;
-    pointer-events: none;
+.control:hover~.control_indicator {
+    background-color: rgb(from var(--accent-color) r g b / 60%);
 }
 
 .control_indicator:after {
@@ -124,13 +137,13 @@ form {
 }
 
 .control-checkbox .control_indicator:after {
-    left: 6px;
-    top: 0px;
-    width: 4px;
-    height: 12px;
-    border: solid #afacac;
-    border-width: 0 3px 3px 0;
-    transform: rotate(45deg);
+    left: 9px;
+    top: -12px;
+    width: 10px;
+    height: 28px;
+    border: solid var(--accent-color);
+    border-width: 0 5px 3px 0;
+    transform: rotate(30deg);
 }
 
 .control-checkbox input:disabled~.control_indicator:after {
@@ -188,10 +201,10 @@ form {
     }
 }
 
-.control-checkbox input+.control_indicator::before {
+/* .control-checkbox input+.control_indicator::before {
     animation: s-ripple 250ms ease-out;
 }
 
 .control-checkbox input:checked+.control_indicator::before {
     animation-name: s-ripple-dup;
-}
+} */

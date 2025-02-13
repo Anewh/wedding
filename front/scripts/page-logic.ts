@@ -9,3 +9,11 @@ export function changeAfterInvitation() {
         invitationSection.style.display = 'none';
     }
 }
+
+export function changeAfterSendEatPreferences() {
+    const choosePreferencesWrapper = document.getElementById('choose-preferences-wrapper');
+
+    if (choosePreferencesWrapper) {
+        choosePreferencesWrapper.style.display = 'none';
+    }
+}

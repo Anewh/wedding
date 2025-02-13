@@ -278,7 +278,8 @@
                   <img src="./public/assets/black-heart-empty.png" class="w-full">
                 </div>
               </div>
-              <div class="flex flex-col md:w-10/12">
+
+              <div class="flex flex-col md:w-10/12 mb-3">
                 <div class="section__header mb-5">
                   Примерная программа дня
                 </div>
@@ -324,27 +325,157 @@
                   </div>
                 </div>
               </div>
+
+              <div class="flex flex-col md:w-1/12 place-items-center mb-3">
+                <div class="h-12 w-12">
+                  <img src="./public/assets/black-heart-empty.png" class="w-full">
+                </div>
+              </div>
             </div>
           </div>
         </div>
       </section>
-      <div id="section--preference__wrapper">
-        <section class="section section--type-second section--preferences">
-          <form id="preferences-form" method="post">
+
+      <div id="choose-preferences-wrapper" {{#if user.sentEatPreferences}}class="hidden" {{/if}}>
+        <section class="section section--type-second">
+          <div class="section__header">Пожалуйста, заполните анкету!</div>
+        </section>
+        <section class="section section--type-first section--delimiter section--preferences">
+          <form id="eat-preferences-form" class="form-body flex flex-col items-center my-6" method="post">
+            <div class="section__subtitle-cormorant mb-3">Ваши особые предпочтения по еде</div>
+            <div id="food-preferences" class="form-body__field-group flex flex-col w-10/12 md:w-9/12 mb-3">
+              <label class="control control-checkbox">
+                Вегетарианец (без мяса)
+                <input type="checkbox" />
+                <div class="control_indicator"></div>
+              </label>
+              <label class="control control-checkbox">
+                Веган (без животных продуктов)
+                <input type="checkbox" />
+                <div class="control_indicator"></div>
+              </label>
+              <label class="control control-checkbox">
+                Кето-диета (низкоуглеводный рацион)
+                <input type="checkbox" />
+                <div class="control_indicator"></div>
+              </label>
+              <label class="control control-checkbox">
+                Палеодиета (без зерновых, молочных продуктов и сахара)
+                <input type="checkbox" />
+                <div class="control_indicator"></div>
+              </label>
+              <label class="control control-checkbox">
+                Безлактозная диета
+                <input type="checkbox" />
+                <div class="control_indicator"></div>
+              </label>
+              <label class="control control-checkbox">
+                Безглютеновая диета
+                <input type="checkbox" />
+                <div class="control_indicator"></div>
+              </label>
+              <label class="control control-checkbox">
+                Аллергия на орехи
+                <input type="checkbox" />
+                <div class="control_indicator"></div>
+              </label>
+
+              <div class="flex flex-col mt-1 w-full">
+                <label class="form-body__label--custom-variant whitespace-nowrap mb-2"
+                       for="custom_special_food_preferences">
+                  Свой вариант:
+                </label>
+                <input class="form-body__input--text w-full" type="text" name="custom_special_food_preferences">
+              </div>
+            </div>
+
+            <div class="section__subtitle-cormorant mb-3">Ваши предпочтения по напиткам</div>
+            <div id="drinks-preferences" class="form-body__field-group flex flex-col w-10/12 md:w-9/12 mb-6">
+              <label class="control control-checkbox">
+                Шампанское
+                <input type="checkbox" />
+                <div class="control_indicator"></div>
+              </label>
+              <label class="control control-checkbox">
+                Вино белое сухое
+                <input type="checkbox" />
+                <div class="control_indicator"></div>
+              </label>
+              <label class="control control-checkbox">
+                Вино белое полусухое
+                <input type="checkbox" />
+                <div class="control_indicator"></div>
+              </label>
+              <label class="control control-checkbox">
+                Вино белое полусладкое
+                <input type="checkbox" />
+                <div class="control_indicator"></div>
+              </label>
+              <label class="control control-checkbox">
+                Вино белое сладкое
+                <input type="checkbox" />
+                <div class="control_indicator"></div>
+              </label>
+              <label class="control control-checkbox">
+                Вино красное сухое
+                <input type="checkbox" />
+                <div class="control_indicator"></div>
+              </label>
+              <label class="control control-checkbox">
+                Вино красное полусухое
+                <input type="checkbox" />
+                <div class="control_indicator"></div>
+              </label>
+              <label class="control control-checkbox">
+                Вино красное полусладкое
+                <input type="checkbox" />
+                <div class="control_indicator"></div>
+              </label>
+              <label class="control control-checkbox">
+                Вино красное сладкое
+                <input type="checkbox" />
+                <div class="control_indicator"></div>
+              </label>
+              <label class="control control-checkbox">
+                Виски/коньяк
+                <input type="checkbox" />
+                <div class="control_indicator"></div>
+              </label>
+              <label class="control control-checkbox">
+                Водка
+                <input type="checkbox" />
+                <div class="control_indicator"></div>
+              </label>
+              <label class="control control-checkbox">
+                Безалкогольные напитки
+                <input type="checkbox" />
+                <div class="control_indicator"></div>
+              </label>
+
+              <div class="flex flex-col mt-1 w-full">
+                <label class="form-body__label--custom-variant whitespace-nowrap mb-2"
+                       for="custom_special_food_preferences">
+                  Свой вариант:
+                </label>
+                <input class="form-body__input--text w-full" type="text" name="custom_special_food_preferences">
+              </div>
+            </div>
+
+            <button class="button">Отправить</button>
           </form>
         </section>
-        <section class="section section--type-first section--delimiter">
-
-        </section>
       </div>
+
       <section class="section section--type-second">
         <div class="section__header mt-5 ">
           Подарки
         </div>
         <div class="section__subtitle mb-5">
-          Главное для нас - ваше внимание, а ваши пожелания в конверте будут лучшим подарком, который поможет исполнить
+          Главное для нас - ваше внимание, а ваши пожелания в конверте будут лучшим подарком, который поможет
+          исполнить
           наши мечты
-          Мы очень любим совместный досуг, особенно, если он помогает саморазвитию. Если вы планировали подарить букет,
+          Мы очень любим совместный досуг, особенно, если он помогает саморазвитию. Если вы планировали подарить
+          букет,
           то
           в качестве альтернативы мы были бы очень рады сертификату на мастер-класс на ваш выбор.
         </div>
@@ -371,7 +502,8 @@
                   <div> Для удобства коммуникации мы решили создать для всех гостей <a class="accent-text"
                        href="#">общий
                       чат</a>, в котором будут
-                    публиковаться обновления пригласительного. Вы можете задавать вопросы в этом чате, а также загружать
+                    публиковаться обновления пригласительного. Вы можете задавать вопросы в этом чате, а также
+                    загружать
                     туда фотографии, сделанные до или во время свадьбы.
                   </div>
                   <div class="flex flex-row justify-between place-items-center mt-4 mb-8">
@@ -386,7 +518,8 @@
                 </div>
               </div>
             </div>
-            <div class="md:w-7/12"> <img class="h-full w-30 object-cover md:h-full" src="./public/assets/photo4.jpg" />
+            <div class="md:w-7/12"> <img class="h-full w-30 object-cover md:h-full"
+                   src="./public/assets/photo4.jpg" />
             </div>
           </div>
         </div>
@@ -450,11 +583,11 @@
           Ваши Мария и Андрей
         </div>
         <div class="flex flex-col md:w-1/12">
-          <div class="section__header place-items-center flex flex-row mt-5 mb-5" style="max-height:10% max-width:auto">
+          <div class="section__header place-items-center flex flex-row mt-5 mb-5"
+               style="max-height:10% max-width:auto">
             <img class="w-14 object-cover place-items-center md:h-full" src="./public/assets/red-heart.png" />
           </div>
       </section>
-    </div>
     </div>
   </main>
 </body>

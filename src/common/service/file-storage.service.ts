@@ -71,9 +71,6 @@ export class UniqueFileStorageService implements OnModuleInit {
 
             this.logger.log(`Storage ${this.filePath} created`);
         } catch (error) {
-            console.log('ffffffffffffffffffffffffff');
-            console.log(error);
-
             throw new Error(`Cannot create Storage: ${this.filePath}`);
         }
     }
@@ -133,4 +130,8 @@ export class UniqueFileStorageService implements OnModuleInit {
     public has(value: string): boolean {
         return this.data.has(value);
     }
+}
+
+export interface FileStorageSerializable {
+    toString(): string;
 }
