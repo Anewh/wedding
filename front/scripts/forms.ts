@@ -10,11 +10,6 @@ const ROUTES = {
     },
 };
 
-type UserData = {
-    sex: string;
-    username: string;
-};
-
 const client = new (class {
     constructor() { }
 

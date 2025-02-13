@@ -36,11 +36,14 @@
     "class-validator": "^0.14.1",
     "fastify": "^5.2.1",
     "handlebars": "^4.7.8",
+    "knockout": "^3.5.1",
     "reflect-metadata": "^0.2.2",
     "requirejs": "^2.3.7",
     "rxjs": "^7.8.1"
   },
   "devDependencies": {
+    "@babel/core": "^7.26.8",
+    "@babel/preset-env": "^7.26.8",
     "@nestjs/cli": "^11.0.0",
     "@nestjs/schematics": "^11.0.0",
     "@swc/cli": "^0.6.0",
@@ -48,6 +51,7 @@
     "@types/express": "^5.0.0",
     "@types/node": "^22.10.7",
     "autoprefixer": "^9.8.8",
+    "babel-loader": "^9.2.1",
     "css-loader": "^7.1.2",
     "globals": "^15.14.0",
     "postcss": "^8.5.1",
@@ -61,7 +65,7 @@
     "ts-node": "^10.9.2",
     "tsconfig-paths": "^4.2.0",
     "typescript": "^5.7.3",
-    "webpack": "^5.97.1",
+    "webpack": "^5.98.0",
     "webpack-cli": "^6.0.1"
   },
   "jest": {

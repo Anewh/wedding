@@ -6,7 +6,7 @@ module.exports = {
         'page-logic': './front/scripts/page-logic.ts',
         forms: './front/scripts/forms.ts',
         timer: './front/scripts/timer.js',
-        dresscode: './front/scripts/dresscode.js',
+        dresscode: './front/scripts/dresscode.ts',
     },
     target: 'web',
     output: {
@@ -28,6 +28,18 @@ module.exports = {
                 use: 'ts-loader',
                 exclude: /node_modules/,
             },
+            {
+                test: /\.(?:js|mjs|cjs)$/,
+                exclude: /node_modules/,
+                use: {
+                    loader: 'babel-loader',
+                    options: {
+                        presets: [
+                            ['@babel/preset-env', { targets: "defaults" }]
+                        ]
+                    }
+                }
+            }
         ],
     },
 };
