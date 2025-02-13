@@ -161,10 +161,20 @@ main {
 
   .button-neo-white {
     @apply text-center;
-    border-radius: 50px;
-    background: linear-gradient(145deg, #bcacab, #9e9190);
-    box-shadow: 20px 20px 60px #968988,
-      -20px -20px 60px #cab9b8;
+    border-radius: 40px;
+    font-size: 3.2vw;
+
+    padding-left: 2rem;
+    padding-right: 2rem;
+    box-shadow: rgba(45, 35, 66, 0.4) 0 4px 8px, rgba(45, 35, 66, 0.3) 0 7px 13px -3px;
+
+    align-items: center;
+    border: none;
+
+    background: #820201;
+    color:#fcf8ee;
+    /* box-shadow: 20px 20px 60px #968988,
+      -20px -20px 60px #cab9b8; */
 
     @media (min-width: 1000px) {
       font-size: 1.2vw;
@@ -174,7 +184,8 @@ main {
   .button-big {
     @apply text-center;
     width: 100%;
-    height: 2rem;
+    padding-top: 0.3rem;
+    padding-bottom: 0.3rem;
     padding-left: 2rem;
     padding-right: 2rem;
 
@@ -203,8 +214,9 @@ main {
   }
 
   .button-contact {
-    width: 3rem;
-    height: 3rem;
+    width: 2.5rem;
+    height: 2.5rem;
+    box-shadow: rgba(45, 35, 66, 0.4) 0 4px 8px, rgba(45, 35, 66, 0.3) 0 7px 13px -3px;
   }
 
   /* &.section--type-third {
@@ -309,4 +321,109 @@ main {
   padding-inline: 0%;
   padding-top: 0%;
   padding-bottom: 0%
+}
+
+.list {
+  display: flex;
+  gap: 24px;
+  max-width: 100%;
+
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+  scroll-padding-inline-start: 28px;
+
+  &::-webkit-scrollbar {
+    display: none;
+  }
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+
+  @media (max-width: 768px) {
+    min-height: 50%;
+  } 
+}
+
+.card {
+  width: 40%;
+  height: auto;
+  box-shadow: 0px 1px 2px 0px rgba(0, 0, 0, 0.15),
+    0px 0px 5px 0px rgba(23, 24, 24, 0.05);
+  flex-shrink: 0;
+  flex-grow: 1;
+  border: none;
+  box-shadow: 7px 7px 14px #b1aea7,
+    -7px -7px 14px #ffffff;
+ 
+  scroll-snap-align: start;
+  scroll-snap-stop: always;
+
+  @media (max-width: 768px) {
+    min-width: 100%;
+  }
+}
+
+strong {
+  font-weight: 700;
+  font-size: 1.25rem;
+}
+
+.buttons {
+  margin-top: 16px;
+  display: flex;
+  gap: 8px;
+  justify-content: flex-end;
+
+  button {
+    all: unset;
+    line-height: 0;
+    color: rgb(79, 70, 229);
+    padding: 8px;
+    height: 10%;
+
+    &:hover:not(:disabled) {
+      cursor: pointer;
+      background-color: rgb(241, 245, 249);
+    }
+
+    &:focus-visible {
+      outline: 1px solid blue;
+      outline-offset: 2px;
+    }
+
+    &:active:not(:disabled) {
+      transform: scale(0.95);
+    }
+
+    &:disabled {
+      svg {
+        color: grey;
+      }
+    }
+  }
+}
+
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border-width: 0;
+}
+
+
+.prevBtn {
+  background-color: none;
+  background: none;
+}
+
+.round-button {
+  border-radius: 200%;
+}
+
+.little-text{
+  font-size: 1rem;
 }
