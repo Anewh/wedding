@@ -1,4 +1,4 @@
-import { Controller, Get, Inject, ParseEnumPipe, Query, Render } from '@nestjs/common';
+import { Controller, Get, Inject, Param, ParseEnumPipe, Query, Render } from '@nestjs/common';
 import { UniqueFileStorageService } from 'src/common/service/file-storage.service';
 import { SexType } from 'src/common/types/enum.types';
 import { UserData } from 'src/dto/request.dto';
@@ -12,11 +12,11 @@ export class MainController {
         private readonly sendEatPreferencesPeople: UniqueFileStorageService,
     ) { }
 
-    @Get('hello')
+    @Get('hello/:s/:n')
     @Render('index.hbs')
     async getMainPage(
-        @Query('s') sex: SexType,
-        @Query('n') username: string
+        @Param('s') sex: SexType,
+        @Param('n') username: string
     ) {
         username = username.replaceAll('_', ' ');
 

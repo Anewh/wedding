@@ -136,10 +136,10 @@ function parsePreferences(fieldGroup: Element): [string[], string | null] {
 }
 
 function getUserData() {
-    const query = new URLSearchParams(window.location.search);
+    const pathParts = decodeURI(window.location.href).split('/');
 
     return {
-        sex: query.get('s') as string,
-        username: query.get('n') as string,
+        sex: pathParts[4] as string,
+        username: pathParts[5] as string,
     };
 }
