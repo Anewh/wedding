@@ -1,16 +1,24 @@
 .welcome {
-    @apply flex w-full h-full overflow-hidden;
+    @apply flex w-full h-full overflow-hidden absolute;
     /* TODO Временно, пока не доработан конверт */
-    @apply hidden;
+    /* @apply hidden; */
+    z-index: 1;
+    background-color: var(--main-theme-color);
+    height: 100vh;
 }
 
 /* внутренняя часть конверта */
 .envelope {
     @apply neomorfic;
-    width: 200px;
-    height: 100px;
+    width: 30vw;
+    height: 15vw;
     background: var(--accent-color);
     position: relative;
+
+    @media (max-width: 768px) {
+        width: 50vw;
+        height: 25vw;
+    }
 }
 
 /* ХЗ */
@@ -75,7 +83,7 @@
 }
 
 .stamp_img {
-    width: 50px;
+    width: 20%;
 }
 
 .stamp_div {
@@ -195,4 +203,9 @@
 .letter__content:nth-child(3) {
     -webkit-backface-visibility: hidden;
     backface-visibility: hidden;
+}
+
+.fade-out {
+    opacity: 0;
+    transition: opacity 0.5s;
 }
