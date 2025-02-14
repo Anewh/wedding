@@ -68,8 +68,8 @@ body {
 
 #main-page {
   @apply pergament;
-  /* overflow: hidden; */
-  display: none;
+   overflow: hidden; 
+  /*display: none;*/
 }
 
 @utility neomorfic {
