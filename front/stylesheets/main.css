@@ -53,6 +53,7 @@ body {
 
 main {
   @apply pergament;
+  overflow: hidden;
 }
 
 @utility neomorfic {
@@ -426,4 +427,22 @@ strong {
 
 .little-text{
   font-size: 1rem;
+}
+
+*:focus {outline:0;}
+
+.carousel-cell {
+  width: 40%;
+  height: max-content;
+  margin-right: 10px;
+  border-radius: 5px;
+  counter-increment: gallery-cell;
+  filter:sepia(30%);
+  border-radius: 50px;
+  box-shadow:  20px 20px 73px #a8a8a8,
+               -20px -20px 73px #ffffff;
+
+  @media (max-width: 768px) {
+    width: 80%;
+  }
 }

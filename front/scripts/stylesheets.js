@@ -12,16 +12,20 @@ $(document).ready(function(){
     prevBtn.onclick = () => {
       scrollContainer.scrollBy({
         top: 0,
-        left: -200,
-        behavior: 'smooth'
+        left: -100,
+        behavior: "smooth",
+        selectedAttraction: 0.01,
+        friction: 0.15
       }) 
     };
     
     nextBtn.onclick = () => {
       scrollContainer.scrollBy({
         top: 0,
-        left: +200,
-        behavior: 'smooth'
+        left: +100,
+        behavior: "smooth",
+        selectedAttraction: 0.01,
+        friction: 0.15
       }) 
     };
     
