@@ -1,4 +1,5 @@
 import axios, { AxiosResponse } from 'axios';
+import confetti from 'canvas-confetti';
 import { changeAfterInvitation, changeAfterSendEatPreferences } from './page-logic';
 
 const ROUTES = {
@@ -34,7 +35,7 @@ const client = new (class {
         if (food.length > 0) {
             body.food = food;
         }
-        
+
         if (foodCustom) {
             body.foodCustom = foodCustom;
         }
@@ -61,6 +62,16 @@ acceptInviteForm?.addEventListener('submit', (e) => {
     client.acceptInvite(sex, username)
         .then(response => {
             if (200 <= response.status && response.status < 300) {
+                confetti({
+                    colors: ['FFE400', 'FFBD00', 'E89400', 'FFCA6C', 'FDFFB8'],
+                    particleCount: 1000,
+                    spread: 360,
+                    ticks: 100,
+                    gravity: 0,
+                    decay: 0.96,
+                    startVelocity: 20,
+                    origin: { y: 0.5 }
+                });
                 changeAfterInvitation();
             }
         });
@@ -82,7 +93,7 @@ eatPreferencesForm?.addEventListener('submit', (e) => {
 
     const [checkedFoodPreferences, customFoodPreferences] = parsePreferences(foodPreferencesElements);
     const [checkedDrinkPreferences, customDrinkPreferences] = parsePreferences(drinkPreferencesElements);
-    
+
     client.sendEatPreferences(
         user,
         checkedFoodPreferences,
@@ -101,8 +112,7 @@ function parsePreferences(fieldGroup: Element): [string[], string | null] {
     const checked: string[] = [];
     let custom: string | null;
 
-    const foodPreferences: string[] = [];
-    for (const control of fieldGroup.getElementsByClassName('control')) {        
+    for (const control of fieldGroup.getElementsByClassName('control')) {
         if (
             !control.textContent ||
             control.children.length < 1 ||

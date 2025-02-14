@@ -210,12 +210,3 @@ input:focus {
 .hideText {
     @apply hidden;
 }
-
-
-/* .control-checkbox input+.control_indicator::before {
-    animation: s-ripple 250ms ease-out;
-}
-
-.control-checkbox input:checked+.control_indicator::before {
-    animation-name: s-ripple-dup;
-} */
