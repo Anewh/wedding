@@ -1,12 +1,12 @@
 export function changeAfterInvitation() {
     const afterInvitation = document.getElementById('after-invitation');
     if (afterInvitation) {
-        afterInvitation.style.display = 'block';
+        afterInvitation.style.opacity = '1';
     }
 
     const invitationSection = document.getElementById('accept-invite-form');
     if (invitationSection) {
-        invitationSection.style.display = 'none';
+        invitationSection.style.opacity = '0';
     }
 }
 
@@ -43,7 +43,7 @@ function goToMainPage(e) {
     };
 
     if (envelopeCheck.checked) {
-        mainPage.style.display = 'flex';
-        setInterval(fadeOutWelcomePage, 500);
+        mainPage.style.opacity = '1';
+        setInterval(fadeOutWelcomePage, 50);
     }
 }

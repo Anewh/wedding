@@ -67,9 +67,10 @@
               <!-- <div class="letter__content">
                  <link rel="import" href=".html">
               </div> -->
+              
+          <div class="envelope__back"></div>
             </div>
           </div>
-          <div class="envelope__back"></div>
         </div>
       </div>
     </div>
@@ -108,7 +109,7 @@
     </div>
   </div>
   <main id="main-page" class="flex flex-col items-center mx-auto justify-center mb-64 sm:w-full md:w-4/6">
-    <div class="section section--type-second section--collage overflow-hidden pt-0 pb-0 p-0">
+    <div class="section section--type-second section--collage pt-0 pb-0 p-0">
       <div class="md:flex">
         <div class="md:w-7/12" style="display: flex; min-height: auto; align-self: flex-start;"> <img class="h-full w-30 object-cover md:h-full" src="/public/assets/collage.jpg" />
         </div>
@@ -272,7 +273,7 @@
         </form>
       {{/unless}}
     </section>
-    <div id="after-invitation" {{#unless user.invited}}class="hidden" {{/unless}}>
+    <div id="after-invitation" {{#unless user.invited}} style="opacity: 0;"{{/unless}}>
       <section class="section section--type-first pl-5 pr-5">
         <div class=" section section--type-first section--collage pt-0 pb-0 p-0">
           <div class="md:flex">
@@ -532,14 +533,14 @@
         </div>
       </section>
 
-<div class="">
+              <div>
 <div class="carousel"
   data-flickity='{ "freeScroll": true, "autoPlay": 1500, "pauseAutoPlayOnHover": false }'>
-  <div class="carousel-cell"> <img src="/public/assets/Начало отношений.png" class="w-full"> </div>
-  <div class="carousel-cell"> <img src="/public/assets/Первый поцелуй.png" class="w-full"></div>
-  <div class="carousel-cell"> <img src="/public/assets/Первое путешествие.png" class="w-full"></div>
-  <div class="carousel-cell">  <img src="/public/assets/Первая заграница.png" class="w-full"></div>
-  <div class="carousel-cell"> <img src="/public/assets/Предложение.png" class="w-full"></div>
+  <div class="carousel-cell"> <img src="/public/assets/Начало отношений.png"> </div>
+  <div class="carousel-cell"> <img src="/public/assets/Первый поцелуй.png"></div>
+  <div class="carousel-cell"> <img src="/public/assets/Первое путешествие.png"></div>
+  <div class="carousel-cell">  <img src="/public/assets/Первая заграница.png"></div>
+  <div class="carousel-cell"> <img src="/public/assets/Предложение.png"></div>
 </div>
 </div>
       <section class="section section--type-second pt-4 pb-4" style="margin-top:4rem;">
