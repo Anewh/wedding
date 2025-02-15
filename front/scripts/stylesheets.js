@@ -2,9 +2,6 @@ import '../stylesheets/main.css';
 // external js: flickity.pkgd.js
 
 import $ from 'jquery'
-$(document).ready(function(){
-  document.getElementsByTagName("html")[0].style.visibility = "visible";
-  });
 
 
 // Удалить после появления ссылки на галерею, добавить в ссылку galleryLink href на облако с фотками
